@@ -1,4 +1,99 @@
-* {
-  box-sizing: border-box;
+/*///////////////////////////////////////////////////////////////////////////////////////////////
+Table of Contents:
+    1. Variables
+    2. Global Styles
+    3. Typografie
+    4. Layout
+///////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+/*//////////////////////////////1. Variables///////////////////////////////////////////////////*/
+
+:root {
+  /*Gold*/
+  --primary-color: hsl(34, 75%, 44%);
+  /*white*/
+  --secondary-color: hsl(0, 0%, 95%);
+  /*purple*/
+  --main-bg-color: hsl(286, 97%, 27%);
+  /*dark grey*/
+  --secondary-bg-color: hsl(240, 4%, 16%);
+
+  --body-font: "Sorts Mill Goudy", serif;
+  --header-font: "Simonetta", serif;
+
+  --standard-shadow: 8px 4px 22px 0px rgba(39,39,42,0.31);
 }
 
+
+/*//////////////////////////////1. Global Styles///////////////////////////////////////////////*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  color: var(--secondary-color);
+  background-color: var(--main-bg-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+
+.img {
+  width: 100%;
+}
+
+ul, li {
+  list-style: none;
+}
+
+/*//////////////////////////////2. Typografie//////////////////////////////////////////////////*/
+
+h1, h2, h3 {
+  color: var(--secondary-color);
+  font-family: var(--header-font), serif;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1.2rem;
+  font-family: var(--body-font), serif;
+}
+
+/*///////////////////////////////3. Layout/////////////////////////////////////////////////////*/
+
+
+.outer-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.inner-content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
