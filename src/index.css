@@ -60,6 +60,10 @@ ul, li {
 
 /*//////////////////////////////2. Typografie//////////////////////////////////////////////////*/
 
+body {
+  text-align: center;
+}
+
 h1, h2, h3 {
   color: var(--accent-color);
   font-family: var(--header-font), serif;

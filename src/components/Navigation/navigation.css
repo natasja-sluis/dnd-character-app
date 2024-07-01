@@ -1,0 +1,42 @@
+
+.navigation-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: var(--secondary-color);
+}
+
+.navigation-inner-container {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navigation-item {
+    flex-basis: 180px;
+}
+
+.navigation-title {
+    color: var(--secondary-text-color);
+}
+
+.navigation-dot {
+    width: 2.5rem;
+}
+
+.default-link, .active-link {
+    font-size: 1.5rem;
+    color: var(--secondary-text-color);
+}
+
+.default-link {
+    border-bottom: transparent;
+}
+
+.active-link {
+    border-bottom: 1px solid var(--accent-color);
+}
+
