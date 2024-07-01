@@ -1,5 +1,6 @@
 import "./navigation.css"
 import {NavLink} from "react-router-dom";
+import { Dot } from "@phosphor-icons/react"
 
 function Navigation() {
     return <nav>
@@ -13,9 +14,9 @@ function Navigation() {
                     </NavLink>
                 </li>
                 <li className="default-link">
-                    <img className="navigation-dot"
-                         src="/src/assets/icons/dot.svg"
-                         alt="dot"/>
+                  <Dot
+                      size={32}
+                  />
                 </li>
                 <li className="navigation-item">
                     <NavLink
@@ -24,9 +25,9 @@ function Navigation() {
                     </NavLink>
                 </li>
                 <li className="default-link">
-                    <img className="navigation-dot"
-                         src="/src/assets/icons/dot.svg"
-                         alt="dot"/>
+                    <Dot
+                        size={32}
+                    />
                 </li>
                 <li className="navigation-item">
                     <NavLink

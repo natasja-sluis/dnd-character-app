@@ -23,10 +23,6 @@
     color: var(--secondary-text-color);
 }
 
-.navigation-dot {
-    width: 2.5rem;
-}
-
 .default-link, .active-link {
     font-size: 1.5rem;
     color: var(--secondary-text-color);
@@ -39,4 +35,5 @@
 .active-link {
     border-bottom: 1px solid var(--accent-color);
 }
+
 
