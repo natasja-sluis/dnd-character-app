@@ -41,18 +41,7 @@ nav ul {
     top: 1.75rem;
     right: 0.75rem;
     display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 2.25rem;
-    height: 2rem;
 }
-
-/*.mobile-menu-icon {*/
-/*    height: 0.4rem;*/
-/*    width: 100%;*/
-/*    background-color: var(--accent-color);*/
-/*    border-radius: 0.2rem;*/
-/*}*/
 
 @media (max-width: 576px) {
     .mobile-menu {
