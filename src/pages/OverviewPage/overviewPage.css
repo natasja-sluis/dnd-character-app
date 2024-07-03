@@ -1,0 +1,7 @@
+.class-container {
+    display: flex;
+    flex-direction: column;
+    column-gap: 50px;
+    background-color: var(--secondary-color);
+    color: var(--secondary-text-color);
+}
