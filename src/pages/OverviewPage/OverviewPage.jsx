@@ -39,15 +39,17 @@ function OverviewPage() {
             {!loaded && <div>Loading...</div>}
             {error && <p>Sorry, something went wrong.</p>}
             <ul>{loaded && !error && classes.results.map((result) => {
-                return <li className="class-container" key={result.name}>
-                    <div>
-                        <h2>{result.name}</h2>
-                        <Heart
-                        className="favourite-icon"
-                        />
+                return <li key={result.name}>
+                    <div className="class-card">
                         <div className="image-container">
                             <img src="/src/assets/images/dnd-character-dwarf-female-barbarian-in-the-mountains.jpg"
                                  alt="Barbarian"/>
+                            <Heart
+                            className="favourite-icon"
+                        />
+                        </div>
+                        <div className="title-container">
+                            <h2>{result.name}</h2>
                         </div>
                     </div>
                 </li>

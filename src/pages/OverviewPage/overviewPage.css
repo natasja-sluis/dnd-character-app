@@ -1,7 +1,32 @@
-.class-container {
+.class-card {
+    height: 200px;
     display: flex;
-    flex-direction: column;
-    column-gap: 50px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    row-gap: 16px;
     background-color: var(--secondary-color);
-    color: var(--secondary-text-color);
+    color: black;
+    box-shadow: var(--standard-shadow);
+    padding: 16px;
+    margin: 22px;
+    border-radius: 5px;
 }
+
+.image-container {
+    position: relative;
+    flex-basis: 100px;
+}
+
+.title-container {
+    width: 200px;
+}
+
+.favourite-icon {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
+
+
