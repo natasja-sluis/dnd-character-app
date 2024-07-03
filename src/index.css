@@ -10,14 +10,14 @@ Table of Contents:
 /*//////////////////////////////1. Variables///////////////////////////////////////////////////*/
 
 :root {
-  /*Gold*/
-  --primary-color: hsl(34, 75%, 44%);
-  /*white*/
-  --secondary-color: hsl(0, 0%, 95%);
   /*purple*/
-  --main-bg-color: hsl(286, 97%, 27%);
+  --primary-color: hsl(286, 97%, 27%);
+  /*Gold*/
+  --accent-color: hsl(34, 75%, 44%);
+  /*whitish*/
+  --secondary-color: hsl(30, 13%, 94%);
   /*dark grey*/
-  --secondary-bg-color: hsl(240, 4%, 16%);
+  --secondary-text-color: hsl(240, 4%, 16%);
 
   --body-font: "Sorts Mill Goudy", serif;
   --header-font: "Simonetta", serif;
@@ -36,20 +36,21 @@ Table of Contents:
 
 :root {
   color: var(--secondary-color);
-  background-color: var(--main-bg-color);
+  background-color: var(--primary-color);
 }
 
 a {
   text-decoration: none;
-  color: var(--primary-color);
+  color: var(--accent-color);
+  font-family: var(--header-font), serif;
 }
 
 a:hover {
-  text-decoration: underline;
-  color: var(--primary-color);
+  text-decoration: none;
+  color: var(--accent-color);
 }
 
-.img {
+img {
   width: 100%;
 }
 
@@ -59,8 +60,12 @@ ul, li {
 
 /*//////////////////////////////2. Typografie//////////////////////////////////////////////////*/
 
+body {
+  text-align: center;
+}
+
 h1, h2, h3 {
-  color: var(--secondary-color);
+  color: var(--accent-color);
   font-family: var(--header-font), serif;
   font-weight: normal;
 }
