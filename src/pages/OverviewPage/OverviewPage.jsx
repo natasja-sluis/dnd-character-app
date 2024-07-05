@@ -34,31 +34,28 @@ function OverviewPage() {
 
 
     return <>
-        <main className="outer-content-container">
+        <main>
             <h1>All Classes</h1>
-            {!loaded && <div>Loading...</div>}
-            {error && <p>Sorry, something went wrong.</p>}
-            <ul>{loaded && !error && classes.results.map((result) => {
-                return <li key={result.name}>
-                    <div className="class-card">
+            <section className="all-classes-section">
+                {!loaded && <div>Loading...</div>}
+                {error && <p>Sorry, something went wrong.</p>}
+                {loaded && !error && classes.results.map((result) => {
+                    return <div className="class-card" key={result.name}>
                         <div className="image-container">
                             <img src="/src/assets/images/dnd-character-dwarf-female-barbarian-in-the-mountains.jpg"
                                  alt="Barbarian"/>
                             <Heart
-                            className="favourite-icon"
-                        />
+                                className="favourite-icon"
+                            />
                         </div>
                         <div className="title-container">
                             <h2>{result.name}</h2>
                         </div>
                     </div>
-                </li>
-            })}
-            </ul>
+                })}
+            </section>
         </main>
     </>
-
-
 }
 
 export default OverviewPage;
