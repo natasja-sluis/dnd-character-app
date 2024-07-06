@@ -18,7 +18,6 @@ function OverviewPage() {
                     {
                         signal: controller.signal,
                     });
-                console.log(response);
                 setClasses(response.data);
                 return function cleanup() {
                     controller.abort();
@@ -34,25 +33,28 @@ function OverviewPage() {
 
 
     return <>
-        <main>
+        <main className="outer-content-container">
             <h1>All Classes</h1>
             <section className="all-classes-section">
-                {!loaded && <div>Loading...</div>}
-                {error && <p>Sorry, something went wrong.</p>}
-                {loaded && !error && classes.results.map((result) => {
-                    return <div className="class-card" key={result.name}>
-                        <div className="image-container">
-                            <img src="/src/assets/images/dnd-character-dwarf-female-barbarian-in-the-mountains.jpg"
-                                 alt="Barbarian"/>
-                            <Heart
-                                className="favourite-icon"
-                            />
+                <div className="inner-container">
+                    {!loaded && <div className="loading-message">Loading...</div>}
+                    {error && <p className="error-message">Sorry, something went wrong.</p>}
+                    {loaded && !error && classes.results.map((result) => {
+                        return <div className="class-card" key={result.name}>
+                            <div className="image-container">
+                                <img
+                                    src="/src/assets/images/dnd-character-human-male-fighter-paladin-in-heavy-armor.jpg"
+                                    alt={result.name}/>
+                                <Heart
+                                    className="favourite-icon"
+                                />
+                            </div>
+                            <div className="title-container">
+                                <h2>{result.name}</h2>
+                            </div>
                         </div>
-                        <div className="title-container">
-                            <h2>{result.name}</h2>
-                        </div>
-                    </div>
-                })}
+                    })}
+                </div>
             </section>
         </main>
     </>

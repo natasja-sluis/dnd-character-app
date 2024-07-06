@@ -1,7 +1,21 @@
+
+main h1 {
+    font-size: 2rem;
+}
+
 .all-classes-section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100vw;
+}
+
+.inner-container {
+    flex-basis: 400px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .class-card {
@@ -17,17 +31,26 @@
     box-shadow: var(--standard-shadow);
     padding: 16px;
     margin: 22px;
-    border-radius: 5px;
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    flex-grow: 0;
+}
+
+.class-card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: ease-out 0.3s;
 }
 
 .image-container {
     position: relative;
     width: 100px;
+    box-shadow: var(--standard-shadow);
 }
 
 .title-container {
-    flex-basis: 100px;
-    text-align: start;
+    flex-basis: 200px;
+    text-align: end;
 }
 
 .favourite-icon {
@@ -36,15 +59,23 @@
     right: 4px;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 1100px) {
     .all-classes-section {
+        display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
         justify-content: center;
+    }
+
+    .inner-container {
+        flex-basis: 1100px;
     }
 
     .class-card {
         flex-basis: 300px;
+    }
+
+    main h1 {
+        font-size: 3rem;
     }
 }
 
