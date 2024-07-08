@@ -25,7 +25,7 @@ function Navigation() {
                     />
                 }
             </div>
-            <ul className={menuOpen && "open-menu"}>
+            <ul className={menuOpen ? "open-menu" : undefined}>
                 <li className="navigation-item">
                     <NavLink
                         className={({isActive}) => isActive ? "active-link" : "default-link"}
