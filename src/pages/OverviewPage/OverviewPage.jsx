@@ -1,8 +1,7 @@
 import {useState, useEffect} from 'react'
 import axios from "axios";
-import {Heart} from "@phosphor-icons/react";
+import ClassTile from "../../components/ClassTile/ClassTile.jsx";
 import "./overviewPage.css"
-import getPicture from "../../utils/getPicture.js";
 
 function OverviewPage() {
     const [classes, setClasses] = useState({});
@@ -41,18 +40,10 @@ function OverviewPage() {
                     {!loaded && <div className="loading-message">Loading...</div>}
                     {error && <p className="error-message">Sorry, something went wrong.</p>}
                     {loaded && !error && classes.results.map((result) => {
-                        return <div className="class-card" key={result.name}>
-                            <div className="image-container">
-                                <img src={getPicture(result.name)}
-                                     alt={result.name}/>
-                                <Heart
-                                    className="favourite-icon"
-                                />
-                            </div>
-                            <div className="title-container">
-                                <h2>{result.name}</h2>
-                            </div>
-                        </div>
+                        return <ClassTile
+                        key={result.name}
+                        name={result.name}
+                        />
                     })}
                 </div>
             </section>
