@@ -1,0 +1,10 @@
+.class-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-detail-page {
+    width: 300px;
+}

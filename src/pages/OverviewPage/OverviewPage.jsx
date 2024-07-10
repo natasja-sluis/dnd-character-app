@@ -43,6 +43,7 @@ function OverviewPage() {
                         return <ClassTile
                         key={result.name}
                         name={result.name}
+                        slug={result.slug}
                         />
                     })}
                 </div>

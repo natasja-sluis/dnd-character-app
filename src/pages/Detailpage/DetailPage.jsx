@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./detailPage.css"
-import ClassTile from "../../components/ClassTile/ClassTile.jsx";
+import CharacterDetail from "../../components/CharacterDetail/CharacterDetail.jsx";
 
 function DetailPage() {
 
@@ -10,7 +10,7 @@ function DetailPage() {
         const [loaded, toggleLoaded] = useState(false);
         const [error, toggleError] = useState(false);
 
-        // Somehow I need to convert useParams to a string and then force to Lower Case so the API works.
+
         const { characterClassName } = useParams();
 
         useEffect(() => {
@@ -19,7 +19,7 @@ function DetailPage() {
             const controller = new AbortController();
             const getCharacterClass = async () => {
                 try {
-                    const response = await axios.get("https://api.open5e.com/v1/classes/cleric",
+                    const response = await axios.get(`https://api.open5e.com/v1/classes/${characterClassName}/`,
                         {
                             signal: controller.signal,
                         });
@@ -44,10 +44,20 @@ function DetailPage() {
                         {!loaded && <div className="loading-message">Loading...</div>}
                         {error && <p className="error-message">Sorry, something went wrong.</p>}
                         {loaded && !error &&
-                            <ClassTile
-                                key={characterClass.name}
+                            <CharacterDetail
                                 name={characterClass.name}
-                                />
+                                hitdice={characterClass.hit_dice}
+                                HP={characterClass.hp_at_1st_level}
+                                armor={characterClass.prof_armor}
+                                weapons={characterClass.prof_weapons}
+                                savingThrows={characterClass.prof_saving_throws}
+                                skill={characterClass.prof_skills}
+                                equipment={characterClass.equipment}
+                                spellCasting={characterClass.spellcasting_ability}
+                                subclassName={characterClass.subtypes_name}
+                                subclasses={characterClass.archetypes}
+                                description={characterClass.desc}
+                            />
                         }
                     </div>
                 </section>

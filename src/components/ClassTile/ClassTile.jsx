@@ -1,20 +1,14 @@
-import getPicture from "../../utils/getPicture.js";
 import {Link} from "react-router-dom";
-import {Heart} from "@phosphor-icons/react";
 import "./classTile.css";
+import ClassImage from "../ClassImage/ClassImage.jsx";
 
-function ClassTile({name}) {
-    console.log(name);
+function ClassTile({name, slug}) {
 
-    return <Link to={`/class/${name}`}>
+    return <Link to={`/class/${slug}`}>
             <div className="class-card" key={name}>
-                <div className="image-container">
-                    <img src={getPicture(name)}
-                         alt={name}/>
-                    <Heart
-                        className="favourite-icon"
-                    />
-                </div>
+               <ClassImage
+               name={name}
+               />
                 <div className="title-container">
                     <h2>{name}</h2>
                 </div>
