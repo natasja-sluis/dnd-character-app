@@ -4,6 +4,8 @@ import {Heart} from "@phosphor-icons/react";
 import "./classTile.css";
 
 function ClassTile({name}) {
+    console.log(name);
+
     return <Link to={`/class/${name}`}>
             <div className="class-card" key={name}>
                 <div className="image-container">

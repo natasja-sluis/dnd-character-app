@@ -31,7 +31,7 @@ function App() {
                     element={<FavouritesPage />}
                 />
                 <Route
-                    path="/class/:characterClass"
+                    path="/class/:characterClassName"
                     element={<DetailPage />}
                 />
                 <Route
