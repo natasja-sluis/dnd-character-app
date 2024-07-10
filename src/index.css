@@ -17,6 +17,8 @@ Table of Contents:
   --secondary-color: hsl(30, 13%, 94%);
   /*dark grey*/
   --secondary-text-color: hsl(240, 4%, 16%);
+  /*background color: gradient of purple and blue*/
+  --background-color: linear-gradient(90deg, rgba(53,43,114,1) 0%, rgba(104,2,136,1) 35%);
 
   --body-font: "Sorts Mill Goudy", serif;
   --header-font: "Simonetta", serif;
@@ -35,7 +37,7 @@ Table of Contents:
 
 :root {
   color: var(--secondary-color);
-  background-color: var(--primary-color);
+  background: var(--background-color);
 }
 
 a {
