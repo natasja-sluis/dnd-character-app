@@ -4,7 +4,6 @@
     align-items: center;
 }
 
-
 .inner-container {
     display: flex;
     flex-direction: row;
@@ -24,6 +23,10 @@
     .inner-container {
         flex-basis: 800px;
         gap: 16px;
+    }
+
+    .outer-content-container h1 {
+        font-size: 4rem;
     }
 }
 

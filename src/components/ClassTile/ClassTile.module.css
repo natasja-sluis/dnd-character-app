@@ -28,6 +28,14 @@
 }
 
 @media (min-width: 800px) {
+    .class-card {
+        width: 220px;
+    }
+
+    .class-card h2 {
+        font-size: 2rem;
+    }
+
     .class-card:nth-child(2n) {
         flex-direction: row;
     }

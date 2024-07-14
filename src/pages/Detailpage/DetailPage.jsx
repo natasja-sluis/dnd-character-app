@@ -40,8 +40,7 @@ function DetailPage() {
     return <>
 
         <main className={styles["outer-content-container"]}>
-            <section className={styles["all-classes-section"]}>
-                <div className={styles["inner-container"]}>
+                <section className={styles["character-detail-container"]}>
                     {!loaded && <div className={styles["loading-message"]}>Loading...</div>}
                     {error && <p className={styles["error-message"]}>Sorry, something went wrong.</p>}
                     {loaded && !error &&
@@ -63,8 +62,7 @@ function DetailPage() {
                             weapons={characterClass.prof_weapons}
                         />
                     }
-                </div>
-            </section>
+                </section>
         </main>
     </>
 }

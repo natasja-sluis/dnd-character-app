@@ -17,6 +17,7 @@ nav ul {
 
 .navigation-item {
     flex-basis: 180px;
+    font-size: 1.5rem;
 }
 
 .navigation-title {
