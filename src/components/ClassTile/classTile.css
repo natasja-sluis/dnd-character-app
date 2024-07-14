@@ -8,6 +8,10 @@
     flex-grow: 0;
 }
 
+.class-card h2 {
+    font-size: 1.5rem;
+}
+
 .class-card:nth-child(2n) {
     flex-direction: row-reverse;
 }

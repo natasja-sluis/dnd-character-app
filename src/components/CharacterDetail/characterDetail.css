@@ -5,6 +5,34 @@
     justify-content: center;
 }
 
+.class-details h2 {
+    text-decoration: underline;
+}
+
+.class-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.class-header-details-list {
+    display: none;
+}
+
 .image-detail-page {
     width: 300px;
 }
+
+#spellcasting {
+    display: none;
+}
+
+
+@media screen and (min-width: 800px) {
+    .class-header-details-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+}
+

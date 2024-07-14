@@ -45,18 +45,21 @@ function DetailPage() {
                         {error && <p className="error-message">Sorry, something went wrong.</p>}
                         {loaded && !error &&
                             <CharacterDetail
-                                name={characterClass.name}
-                                hitdice={characterClass.hit_dice}
-                                HP={characterClass.hp_at_1st_level}
                                 armor={characterClass.prof_armor}
-                                weapons={characterClass.prof_weapons}
+                                description={characterClass.desc}
+                                equipment={characterClass.equipment}
+                                hitdice={characterClass.hit_dice}
+                                HPLevelUp={characterClass.hp_at_higher_levels}
+                                HPStart={characterClass.hp_at_1st_level}
+                                name={characterClass.name}
                                 savingThrows={characterClass.prof_saving_throws}
                                 skill={characterClass.prof_skills}
-                                equipment={characterClass.equipment}
                                 spellCasting={characterClass.spellcasting_ability}
-                                subclassName={characterClass.subtypes_name}
                                 subclasses={characterClass.archetypes}
-                                description={characterClass.desc}
+                                subclassName={characterClass.subtypes_name}
+                                table={characterClass.table}
+                                tools={characterClass.prof_tools}
+                                weapons={characterClass.prof_weapons}
                             />
                         }
                     </div>
