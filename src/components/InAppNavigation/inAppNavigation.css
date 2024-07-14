@@ -1,0 +1,5 @@
+.in-app-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}

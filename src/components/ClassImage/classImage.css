@@ -1,0 +1,11 @@
+.image-container {
+    width: 100%;
+    position: relative;
+    box-shadow: var(--standard-shadow);
+}
+
+.favourite-icon {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}

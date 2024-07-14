@@ -1,19 +1,15 @@
 .class-card {
-    height: 200px;
-    width: 300px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    row-gap: 16px;
-    background-color: var(--secondary-color);
+    width: 170px;
     color: black;
+    background-color: var(--secondary-color);
     box-shadow: var(--standard-shadow);
-    padding: 16px;
-    margin: 22px;
-    border: 1px solid var(--accent-color);
+    border: 4px solid var(--accent-color);
     border-radius: 8px;
     flex-grow: 0;
+}
+
+.class-card h2 {
+    font-size: 1.5rem;
 }
 
 .class-card:nth-child(2n) {
@@ -26,33 +22,13 @@
     transition: ease-out 0.3s;
 }
 
-.image-container {
-    position: relative;
-    width: 100px;
-    box-shadow: var(--standard-shadow);
-}
-
 .title-container {
     flex-basis: 200px;
     text-align: center;
 }
 
-.favourite-icon {
-    position: absolute;
-    top: 4px;
-    right: 4px;
-}
-
-@media (min-width: 1100px) {
-    .class-card {
-        flex-basis: 300px;
-    }
-
+@media (min-width: 800px) {
     .class-card:nth-child(2n) {
         flex-direction: row;
-    }
-
-    .title-container {
-        text-align: end;
     }
 }

@@ -6,6 +6,7 @@ import LogInPage from "./pages/LogInPage/LogInPage.jsx";
 import OverviewPage from "./pages/OverviewPage/OverviewPage.jsx";
 import FavouritesPage from "./pages/FavouritesPage/FavouritesPage.jsx";
 import DetailPage from "./pages/Detailpage/DetailPage.jsx";
+import NotFound from "./pages/NotFound/NotFound.jsx";
 
 function App() {
 
@@ -13,11 +14,30 @@ function App() {
         <>
             <Navigation />
             <Routes>
-                <Route path="/" element={<Homepage />} />
-                <Route path="/log-in" element={<LogInPage />} />
-                <Route path="/overview" element={<OverviewPage />} />
-                <Route path="/favourites" element={<FavouritesPage />} />
-                <Route path="/class-details" element={<DetailPage />} />
+                <Route
+                    path="/"
+                    element={<Homepage />}
+                />
+                <Route
+                    path="/log-in"
+                    element={<LogInPage />}
+                />
+                <Route
+                    path="/overview"
+                    element={<OverviewPage />}
+                />
+                <Route
+                    path="/favourites"
+                    element={<FavouritesPage />}
+                />
+                <Route
+                    path="/class/:characterClassName"
+                    element={<DetailPage />}
+                />
+                <Route
+                    path="*"
+                    element={<NotFound />}
+                />
             </Routes>
         </>
     )
