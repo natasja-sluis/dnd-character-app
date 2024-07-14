@@ -1,9 +1,9 @@
-import "./ClassImage.module.css";
+import styles from "./ClassImage.module.css";
 import getPicture from "../../utils/getPicture.js";
 import {Heart} from "@phosphor-icons/react";
 
 function ClassImage({name}) {
-    return <div className="image-container">
+    return <div className={styles["image-container"]}>
         <img src={getPicture(name)}
              alt={name}/>
         <Heart

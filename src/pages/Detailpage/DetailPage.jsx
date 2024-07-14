@@ -1,9 +1,8 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
 import {useParams} from "react-router-dom";
-import "./DetailPage.module.css"
 import CharacterDetail from "../../components/CharacterDetail/CharacterDetail.jsx";
-import InAppNavigation from "../../components/InAppNavigation/InAppNavigation.jsx";
+import styles from "./DetailPage.module.css"
 
 function DetailPage() {
 
@@ -40,11 +39,11 @@ function DetailPage() {
 
     return <>
 
-        <main className="outer-content-container">
-            <section className="all-classes-section">
-                <div className="inner-container">
-                    {!loaded && <div className="loading-message">Loading...</div>}
-                    {error && <p className="error-message">Sorry, something went wrong.</p>}
+        <main className={styles["outer-content-container"]}>
+            <section className={styles["all-classes-section"]}>
+                <div className={styles["inner-container"]}>
+                    {!loaded && <div className={styles["loading-message"]}>Loading...</div>}
+                    {error && <p className={styles["error-message"]}>Sorry, something went wrong.</p>}
                     {loaded && !error &&
                         <CharacterDetail
                             armor={characterClass.prof_armor}

@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {Link, NavLink} from "react-router-dom";
 import {Dot, List, XSquare} from "@phosphor-icons/react"
-import "./Navigation.module.css"
+import styles from "./Navigation.module.css"
 
 function Navigation() {
 
@@ -9,11 +9,11 @@ function Navigation() {
 
 
     return <header>
-        <nav className="navigation-container">
+        <nav className={styles["navigation-container"]}>
             <Link to="/">
-                <h2 className="navigation-title">D&D</h2>
+                <h2 className={styles["navigation-title"]}>D&D</h2>
             </Link>
-            <div className="mobile-menu" onClick={() => setMenuOpen(!menuOpen)}>
+            <div className={styles["mobile-menu"]} onClick={() => setMenuOpen(!menuOpen)}>
                 {menuOpen ?
                     <XSquare
                         size={32}
@@ -25,30 +25,30 @@ function Navigation() {
                     />
                 }
             </div>
-            <ul className={menuOpen ? "open-menu" : undefined}>
-                <li className="navigation-item">
+            <ul className={menuOpen ? styles["open-menu"] : undefined}>
+                <li className={styles["navigation-item"]}>
                     <NavLink
                         className={({isActive}) => isActive ? "active-link" : "default-link"}
                         to="/">Home
                     </NavLink>
                 </li>
-                <li className="default-link">
+                <li className={styles["default-link"]}>
                     <Dot
                         size={32}
                     />
                 </li>
-                <li className="navigation-item">
+                <li className={styles["navigation-item"]}>
                     <NavLink
                         className={({isActive}) => isActive ? "active-link" : "default-link"}
                         to="/overview">All Classes
                     </NavLink>
                 </li>
-                <li className="default-link">
+                <li className={styles["default-link"]}>
                     <Dot
                         size={32}
                     />
                 </li>
-                <li className="navigation-item">
+                <li className={styles["navigation-item"]}>
                     <NavLink
                         className={({isActive}) => isActive ? "active-link" : "default-link"}
                         to="/favourites">Favourites

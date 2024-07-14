@@ -1,4 +1,4 @@
-import "./LogInPage.module.css"
+import styles from "./LogInPage.module.css"
 
 function LogInPage() {
     return <h2>Log In Page</h2>
