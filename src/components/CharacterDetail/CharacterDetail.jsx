@@ -1,4 +1,4 @@
-import "./characterDetail.css"
+import styles from "./CharacterDetail.module.css"
 import Markdown from "markdown-to-jsx";
 import ClassImage from "../ClassImage/ClassImage.jsx";
 import InAppNavigation from "../InAppNavigation/InAppNavigation.jsx";
@@ -21,17 +21,17 @@ function CharacterDetail({
                              tools,
                              weapons,
                          }) {
-    return <div className="class-details">
+    return <div className={styles["class-details"]}>
         <InAppNavigation
             navigate="/overview"
         />
-        <div className="class-header">
+        <div className={styles["class-header"]}>
             <ClassImage
                 name={name}
             />
-            <div className="class-header-details">
+            <div className={styles["class-header-details"]}>
                 <h1>{name}</h1>
-                <ul className="class-header-details-list">
+                <ul className={styles["class-header-details-list"]}>
                     <li>Hit dice: {hitdice}</li>
                     {spellCasting && <li>SpellCasting: {spellCasting}</li>}
                     <li>Saves: {savingThrows}</li>
@@ -39,7 +39,7 @@ function CharacterDetail({
             </div>
         </div>
 
-        <div className="class-body-details">
+        <div className={styles["class-body-details"]}>
 
             <details>
                 <summary><h2>Class Features</h2></summary>
@@ -91,7 +91,7 @@ function CharacterDetail({
                 <Markdown>{description}</Markdown>
             </details>
 
-            <details className="progression-table">
+            <details className={styles["progression-table"]}>
                 <summary>
                     <h2>Class Progression</h2>
                 </summary>

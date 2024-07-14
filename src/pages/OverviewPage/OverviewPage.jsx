@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import axios from "axios";
 import ClassTile from "../../components/ClassTile/ClassTile.jsx";
-import "./overviewPage.css"
+import styles from "./OverviewPage.module.css"
 
 function OverviewPage() {
     const [classes, setClasses] = useState({});
@@ -33,12 +33,12 @@ function OverviewPage() {
 
 
     return <>
-        <main className="outer-content-container">
+        <main className={styles["outer-content-container"]}>
             <h1>All Classes</h1>
-            <section className="all-classes-section">
-                <div className="inner-container">
-                    {!loaded && <div className="loading-message">Loading...</div>}
-                    {error && <p className="error-message">Sorry, something went wrong.</p>}
+            <section className={styles["all-classes-section"]}>
+                <div className={styles["inner-container"]}>
+                    {!loaded && <div className={styles["loading-message"]}>Loading...</div>}
+                    {error && <p className={styles["error-message"]}>Sorry, something went wrong.</p>}
                     {loaded && !error && classes.results.map((result) => {
                         return <ClassTile
                         key={result.name}

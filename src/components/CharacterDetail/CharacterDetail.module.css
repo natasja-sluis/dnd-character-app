@@ -1,7 +1,6 @@
 .class-details {
     display: flex;
     flex-direction: column;
-    row-gap: 16px;
     padding: 8px;
 }
 
@@ -16,7 +15,6 @@
 .class-header {
     display: flex;
     flex-direction: column-reverse;
-
 }
 
 .class-header-details {
@@ -46,11 +44,15 @@ details h3, details h2 {
 }
 
 @media screen and (min-width: 800px) {
-
     .class-details {
         box-shadow: var(--standard-shadow);
         padding: 64px;
-        margin-top: 50px
+        margin-top: 50px;
+        row-gap: 16px;
+    }
+
+    .class-header-details {
+        padding: 8px;
     }
 
     .class-header-details-list {
@@ -62,7 +64,6 @@ details h3, details h2 {
     }
 
     .class-header {
-        width: 600px;
         flex-direction: row;
         padding: 32px;
         margin: 16px;

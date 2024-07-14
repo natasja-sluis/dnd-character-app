@@ -1,0 +1,17 @@
+.outer-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.character-detail-container {
+    width: 300px;
+}
+
+
+@media screen and (min-width: 800px) {
+    .character-detail-container {
+        width: 800px;
+    }
+}
