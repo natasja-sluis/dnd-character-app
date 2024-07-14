@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {Link, NavLink} from "react-router-dom";
 import {Dot, List, XSquare} from "@phosphor-icons/react"
-import "./navigation.css"
+import "./Navigation.module.css"
 
 function Navigation() {
 

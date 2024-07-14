@@ -1,4 +1,4 @@
-import "./favouritesPage.css"
+import "./FavouritesPage.module.css"
 
 function FavouritesPage() {
     return <h2>Favourites</h2>

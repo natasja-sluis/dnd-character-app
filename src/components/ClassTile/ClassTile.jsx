@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import "./classTile.css";
+import "./ClassTile.module.css";
 import ClassImage from "../ClassImage/ClassImage.jsx";
 
 function ClassTile({name, slug}) {

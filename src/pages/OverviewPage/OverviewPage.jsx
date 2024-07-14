@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import axios from "axios";
 import ClassTile from "../../components/ClassTile/ClassTile.jsx";
-import "./overviewPage.css"
+import "./OverviewPage.module.css"
 
 function OverviewPage() {
     const [classes, setClasses] = useState({});

@@ -1,4 +1,4 @@
-import "./characterDetail.css"
+import "./CharacterDetail.module.css"
 import Markdown from "markdown-to-jsx";
 import ClassImage from "../ClassImage/ClassImage.jsx";
 import InAppNavigation from "../InAppNavigation/InAppNavigation.jsx";

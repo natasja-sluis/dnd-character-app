@@ -1,4 +1,4 @@
-import "./classImage.css";
+import "./ClassImage.module.css";
 import getPicture from "../../utils/getPicture.js";
 import {Heart} from "@phosphor-icons/react";
 

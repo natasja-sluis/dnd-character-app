@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
 import {useParams} from "react-router-dom";
-import "./detailPage.css"
+import "./DetailPage.module.css"
 import CharacterDetail from "../../components/CharacterDetail/CharacterDetail.jsx";
 import InAppNavigation from "../../components/InAppNavigation/InAppNavigation.jsx";
 
