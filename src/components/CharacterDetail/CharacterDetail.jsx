@@ -1,6 +1,7 @@
 import "./characterDetail.css"
 import Markdown from "markdown-to-jsx";
 import ClassImage from "../ClassImage/ClassImage.jsx";
+import InAppNavigation from "../InAppNavigation/InAppNavigation.jsx";
 
 
 function CharacterDetail({
@@ -21,6 +22,9 @@ function CharacterDetail({
                              weapons,
                          }) {
     return <div className="class-details">
+        <InAppNavigation
+            navigate="/overview"
+        />
         <div className="class-header">
             <ClassImage
                 name={name}
