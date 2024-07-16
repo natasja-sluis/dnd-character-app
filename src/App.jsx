@@ -7,36 +7,41 @@ import OverviewPage from "./pages/OverviewPage/OverviewPage.jsx";
 import FavouritesPage from "./pages/FavouritesPage/FavouritesPage.jsx";
 import DetailPage from "./pages/Detailpage/DetailPage.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
+import Register from "./pages/Register/Register.jsx";
 
 function App() {
 
     return (
         <>
-            <Navigation />
+            <Navigation/>
             <Routes>
                 <Route
                     path="/"
-                    element={<Homepage />}
+                    element={<Homepage/>}
                 />
                 <Route
                     path="/log-in"
-                    element={<LogInPage />}
+                    element={<LogInPage/>}
+                />
+                <Route
+                    path="/register"
+                    element={<Register/>}
                 />
                 <Route
                     path="/overview"
-                    element={<OverviewPage />}
+                    element={<OverviewPage/>}
                 />
                 <Route
                     path="/favourites"
-                    element={<FavouritesPage />}
+                    element={<FavouritesPage/>}
                 />
                 <Route
                     path="/class/:characterClassName"
-                    element={<DetailPage />}
+                    element={<DetailPage/>}
                 />
                 <Route
                     path="*"
-                    element={<NotFound />}
+                    element={<NotFound/>}
                 />
             </Routes>
         </>

@@ -88,9 +88,14 @@ h4 {
   font-size: 1.5rem;
 }
 
-p {
+p, label {
   font-size: 1.2rem;
   font-family: var(--body-font), serif;
+}
+
+button {
+  font-family: var(--body-font), serif;
+  font-size: 1rem;
 }
 
 .error-message, .loading-message {
