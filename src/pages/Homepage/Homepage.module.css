@@ -1,0 +1,25 @@
+.homepage-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    row-gap: 32px;
+}
+
+.text-container {
+    flex-basis: 36vh;
+}
+
+.button-container {
+    display: flex;
+    flex-basis: 300px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    row-gap: 16px;
+    background: var(--secondary-color);
+}
+
+.message {
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+}
