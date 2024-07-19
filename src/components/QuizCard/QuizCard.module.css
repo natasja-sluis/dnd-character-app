@@ -3,18 +3,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 16px;
     padding: 16px;
 }
 
-.question {
-    display: flex;
-    flex-direction: row;
+.quiz-card h1 {
+    margin-bottom: 16px;
 }
 
 .quiz-card li {
     background-color: var(--secondary-color);
     color: var(--secondary-text-color);
-    padding: 8px 32px;
     margin: 8px;
+    width: 294px;
 }

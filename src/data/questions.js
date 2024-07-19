@@ -1,0 +1,42 @@
+export const questions = [
+    {
+        question: 'What is the name of your first question?',
+        option2: 'What is the name of your question?',
+        option3: 'What is the name of your question?',
+        option4: 'What is the name of your question?',
+        option5: 'What is the name of your question?',
+        option1: 'What is the name of your question?',
+    },
+    {
+        question: 'What is the name of your second question?',
+        option1: 'What is the name of your question?',
+        option2: 'What is the name of your question?',
+        option3: 'What is the name of your question?',
+        option4: 'What is the name of your question?',
+        option5: 'What is the name of your question?',
+    },
+    {
+        question: 'What is the name of your third question?',
+        option1: 'What is the name of your question?',
+        option2: 'What is the name of your question?',
+        option3: 'What is the name of your question?',
+        option4: 'What is the name of your question?',
+        option5: 'What is the name of your question?',
+    },
+    {
+        question: 'What is the name of your fourth question?',
+        option1: 'What is the name of your question?',
+        option2: 'What is the name of your question?',
+        option3: 'What is the name of your question?',
+        option4: 'What is the name of your question?',
+        option5: 'What is the name of your question?',
+    },
+    {
+        question: 'What is the name of your fifth question?',
+        option1: 'What is the name of your question?',
+        option2: 'What is the name of your question?',
+        option3: 'What is the name of your question?',
+        option4: 'What is the name of your question?',
+        option5: 'What is the name of your question?',
+    },
+]

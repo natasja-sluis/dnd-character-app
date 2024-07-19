@@ -7,3 +7,12 @@
     height: 100vh;
 }
 
+.question-navigation-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+
