@@ -4,7 +4,7 @@ import {Routes, Route, Navigate} from 'react-router-dom'
 import Homepage from "./pages/Homepage/Homepage.jsx";
 import Navigation from "./components/Navigation/Navigation.jsx";
 import OverviewPage from "./pages/OverviewPage/OverviewPage.jsx";
-import FavouritesPage from "./pages/FavouritesPage/FavouritesPage.jsx";
+import ProfilePage from "./pages/ProfilePage/ProfilePage.jsx";
 import DetailPage from "./pages/Detailpage/DetailPage.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import LoginPage from "./pages/AuthenticationPages/LoginPage/LoginPage.jsx";
@@ -41,8 +41,8 @@ function App() {
                     element={<OverviewPage/>}
                 />
                 <Route
-                    path="/favourites"
-                    element={<FavouritesPage/>}
+                    path="/profile"
+                    element={isAuthenticated ? <ProfilePage/> : <Navigate to="/login"/>}
                 />
                 <Route
                     path="/class/:characterClassName"

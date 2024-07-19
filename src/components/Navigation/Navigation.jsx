@@ -51,7 +51,7 @@ function Navigation() {
                 <li className={styles["navigation-item"]}>
                     <NavLink
                         className={({isActive}) => isActive ? styles["active-link"] : styles["default-link"]}
-                        to="/favourites">Favourites
+                        to="/profile">Profile
                     </NavLink>
                 </li>
             </ul>

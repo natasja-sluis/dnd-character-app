@@ -10,7 +10,7 @@ function AuthContextProvider({children}) {
 
     function login() {
        toggleIsAuthenticated(true);
-       navigate("/quiz");
+       navigate("/");
     }
 
     function logout() {
