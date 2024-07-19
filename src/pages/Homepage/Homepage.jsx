@@ -1,27 +1,27 @@
+import {Link, useNavigate} from "react-router-dom";
 import Button from "../../components/Button/Button.jsx";
 import {WaveSine} from "@phosphor-icons/react"
 import styles from "./Homepage.module.css"
 
-
-
-
 function Homepage() {
+
+    const navigate = useNavigate();
+
     return <div className={styles["homepage-container"]}>
         <div className={styles["text-container"]}>
-            <h1 >Take the quiz</h1>
-            <WaveSine
-                size={23}
-            />
+            <Link to="/quiz"><h1>Take the quiz</h1></Link>
         </div>
-        <div className={styles["button-container"]}>
-            <p className={styles["message"]}>Or...</p>
+        <WaveSine
+        size={23}
+    />
+        <div>
             <Button
-                type="button"
-                text="All Classes"
+                text="Log In"
+                linkTo="/login"
             />
             <Button
-                type="button"
-                text="Favourites"
+                text="Register"
+                linkTo="/register"
             />
         </div>
     </div>

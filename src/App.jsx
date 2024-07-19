@@ -1,15 +1,20 @@
 import './App.css'
-import {Routes, Route} from 'react-router-dom'
+import {useContext} from 'react'
+import {Routes, Route, Navigate} from 'react-router-dom'
 import Homepage from "./pages/Homepage/Homepage.jsx";
 import Navigation from "./components/Navigation/Navigation.jsx";
-import LogInPage from "./pages/LogInPage/LogInPage.jsx";
 import OverviewPage from "./pages/OverviewPage/OverviewPage.jsx";
 import FavouritesPage from "./pages/FavouritesPage/FavouritesPage.jsx";
 import DetailPage from "./pages/Detailpage/DetailPage.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
-import Register from "./pages/Register/Register.jsx";
+import LoginPage from "./pages/AuthenticationPages/LoginPage/LoginPage.jsx";
+import RegisterPage from "./pages/AuthenticationPages/RegisterPage/RegisterPage.jsx";
+import QuizPage from "./pages/QuizPage/QuizPage.jsx";
+import {AuthContext} from "./context/AuthContext.jsx";
 
 function App() {
+
+    const {isAuthenticated} = useContext(AuthContext);
 
     return (
         <>
@@ -20,12 +25,16 @@ function App() {
                     element={<Homepage/>}
                 />
                 <Route
-                    path="/log-in"
-                    element={<LogInPage/>}
+                    path="/login"
+                    element={<LoginPage/>}
                 />
                 <Route
-                    path="/register"
-                    element={<Register/>}
+                path="/register"
+                element={<RegisterPage/>}
+                />
+                <Route
+                path="/quiz"
+                element={isAuthenticated ? <QuizPage/> : <Navigate to="/login" />}
                 />
                 <Route
                     path="/overview"

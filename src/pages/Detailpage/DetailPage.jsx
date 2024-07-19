@@ -10,7 +10,6 @@ function DetailPage() {
     const [loaded, toggleLoaded] = useState(false);
     const [error, toggleError] = useState(false);
 
-
     const {characterClassName} = useParams();
 
     useEffect(() => {
@@ -19,7 +18,7 @@ function DetailPage() {
         const controller = new AbortController();
         const getCharacterClass = async () => {
             try {
-                const response = await axios.get(`https://api.open5e.com/v1/classes/${characterClassName}/`,
+                const response = await axios.get(`https://api.open5e.com/v1/classes/${characterClassName.toLowerCase()}/`,
                     {
                         signal: controller.signal,
                     });
