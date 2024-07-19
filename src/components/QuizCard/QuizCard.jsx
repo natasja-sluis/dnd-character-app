@@ -1,9 +1,8 @@
 import styles from "./QuizCard.module.css";
-import Button from "../Button/Button.jsx";
+
 
 function QuizCard({question, answer1, answer2, answer3, answer4, answer5, number, numbertotal}) {
     return <div className={styles["quiz-card"]}>
-        <p>question {number} of {numbertotal}</p>
         <h1>{question}</h1>
         <ul>
             <li>
@@ -22,10 +21,6 @@ function QuizCard({question, answer1, answer2, answer3, answer4, answer5, number
                 {answer5}
             </li>
         </ul>
-        <Button
-        type="button"
-        text="next"
-        />
     </div>
 }
 
