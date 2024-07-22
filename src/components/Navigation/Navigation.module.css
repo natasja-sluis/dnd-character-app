@@ -43,6 +43,15 @@ nav ul {
     display: none;
 }
 
+.login-out-icon {
+    color: var(--secondary-text-color);
+}
+
+.login-out-icon:hover {
+    color: var(--accent-color);
+    cursor: pointer;
+}
+
 @media (max-width: 576px) {
     .mobile-menu {
         display: flex;
