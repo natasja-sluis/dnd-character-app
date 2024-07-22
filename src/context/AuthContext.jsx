@@ -15,7 +15,7 @@ function AuthContextProvider({children}) {
 
 
     useEffect(() => {
-        const token = localStorage.getItem("jwtToken");
+        const token = localStorage.getItem("token");
         if (token) {
             const decoded = jwtDecode(token);
             void fetchUserData(decoded.sub, token);

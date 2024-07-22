@@ -49,7 +49,7 @@ function LoginPage() {
             <form onSubmit={handleSubmit(onSubmit)}>
 
                 <div className={styles["input-container"]}>
-                    <label htmlFor="email">Username:</label>
+                    <label htmlFor="username">Username:</label>
                     <input
                         type="text"
                         name="username"
