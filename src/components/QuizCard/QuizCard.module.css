@@ -1,0 +1,18 @@
+.quiz-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.quiz-card h1 {
+    margin-bottom: 16px;
+}
+
+.quiz-card li {
+    background-color: var(--secondary-color);
+    color: var(--secondary-text-color);
+    margin: 8px;
+    width: 294px;
+}

@@ -28,7 +28,7 @@ function Navigation() {
             <ul className={menuOpen ? styles["open-menu"] : undefined}>
                 <li className={styles["navigation-item"]}>
                     <NavLink
-                        className={({isActive}) => isActive ? "active-link" : "default-link"}
+                        className={({isActive}) => isActive ? styles["active-link"] : styles["default-link"]}
                         to="/">Home
                     </NavLink>
                 </li>
@@ -39,7 +39,7 @@ function Navigation() {
                 </li>
                 <li className={styles["navigation-item"]}>
                     <NavLink
-                        className={({isActive}) => isActive ? "active-link" : "default-link"}
+                        className={({isActive}) => isActive ? styles["active-link"] : styles["default-link"]}
                         to="/overview">All Classes
                     </NavLink>
                 </li>
@@ -50,8 +50,8 @@ function Navigation() {
                 </li>
                 <li className={styles["navigation-item"]}>
                     <NavLink
-                        className={({isActive}) => isActive ? "active-link" : "default-link"}
-                        to="/favourites">Favourites
+                        className={({isActive}) => isActive ? styles["active-link"] : styles["default-link"]}
+                        to="/profile">Profile
                     </NavLink>
                 </li>
             </ul>

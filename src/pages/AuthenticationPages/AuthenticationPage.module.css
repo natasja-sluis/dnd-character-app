@@ -1,0 +1,22 @@
+.authentication-page-container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.authentication-form {
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 300px;
+    width: 300px;
+    border-radius: 8px;
+}
+
+.authentication-message {
+    color: var(--secondary-text-color);
+}

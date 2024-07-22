@@ -78,7 +78,11 @@ details h3, details h2 {
     }
 
     .progression-table {
-        display: block;
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        scrollbar-color: var(--accent-color) var(--primary-color);
+        scrollbar-width: thin;
     }
 }
 
