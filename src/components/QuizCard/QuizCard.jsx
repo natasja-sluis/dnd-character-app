@@ -1,9 +1,9 @@
 import styles from "./QuizCard.module.css";
 
 
-function QuizCard({children, question, number, option1, option2, option3, option4, option5}) {
+function QuizCard({question, number, option1, option2, option3, option4, option5}) {
     return <div className={styles["quiz-card"]}>
-        <h3>{number} {question}</h3>
+        <h3>{number}. {question}</h3>
         <ul>
             <li>
                 {option1}
@@ -21,7 +21,6 @@ function QuizCard({children, question, number, option1, option2, option3, option
                 {option5}
             </li>
         </ul>
-        {children}
     </div>
 }
 
