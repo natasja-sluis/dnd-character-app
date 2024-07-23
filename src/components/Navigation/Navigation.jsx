@@ -1,11 +1,14 @@
-import {useState} from 'react';
-import {Link, NavLink} from "react-router-dom";
-import {Dot, List, XSquare} from "@phosphor-icons/react"
+import {useContext, useState} from 'react';
+import {Link, NavLink, useNavigate} from "react-router-dom";
+import {Dot, List, SignOut, SignIn, XSquare} from "@phosphor-icons/react"
 import styles from "./Navigation.module.css"
+import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Navigation() {
 
     const [menuOpen, setMenuOpen] = useState(false);
+    const {logout, login, isAuthenticated} = useContext(AuthContext);
+    const navigate = useNavigate();
 
 
     return <header>
@@ -53,6 +56,16 @@ function Navigation() {
                         className={({isActive}) => isActive ? styles["active-link"] : styles["default-link"]}
                         to="/profile">Profile
                     </NavLink>
+                </li>
+                <li className={styles["default-link"]}>
+                    <Dot
+                        size={32}
+                    />
+                </li>
+                <li>
+                    {isAuthenticated ? <SignOut size={32} onClick={logout} className={styles["login-out-icon"]}/>
+                        : <SignIn size={32} onClick={() => navigate("/login")} className={styles["login-out-icon"]}/>
+                    }
                 </li>
             </ul>
         </nav>

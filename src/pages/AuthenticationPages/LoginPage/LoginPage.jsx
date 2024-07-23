@@ -1,35 +1,72 @@
-import {useContext} from "react";
+import {useContext, useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import Inputfield from "../../../components/Inputfield/Inputfield.jsx";
+import {AuthContext} from "../../../context/AuthContext.jsx";
+import {useForm} from "react-hook-form";
+import axios from "axios"
 import Button from "../../../components/Button/Button.jsx";
 import styles from "/src/pages/AuthenticationPages/AuthenticationPage.module.css"
-import {AuthContext} from "../../../context/AuthContext.jsx";
 
 function LoginPage() {
 
-        const {login} = useContext(AuthContext);
+    const {handleSubmit, register} = useForm();
+    const [error, toggleError] = useState(false);
+    const {login} = useContext(AuthContext);
 
-        function handleSubmit(e) {
-            e.preventDefault();
-            login();
-            console.log("logged in");
+    const source = axios.CancelToken.source();
+
+    useEffect(() => {
+        return function cleanup() {
+            source.cancel();
         }
+    }, [source]);
+
+
+    async function onSubmit(data) {
+        toggleError(false);
+
+        try {
+            const response = await axios.post("https://api.datavortex.nl/classesdndapp/users/authenticate", {
+                "username": data.username,
+                "password": data.password,
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Api-Key': 'classesdndapp:gojvJ2W0a5H9EWvzN8bl',
+                }
+            }, {
+                cancelToken: source.token,
+            });
+            login(response.data.jwt);
+        } catch (error) {
+            console.error(error);
+            toggleError(true);
+        }
+    }
 
     return <div className={styles["authentication-page-container"]}>
+        {error && <p className="error-message">Something went wrong...</p>}
         <div className={styles["authentication-form"]}>
-            <form onSubmit={handleSubmit}>
-                <Inputfield
-                    inputtype="email"
-                    name="email"
-                    label="Email:"
-                    register="email"
-                />
-                <Inputfield
-                    inputtype="password"
-                    name="password"
-                    label="Password:"
-                    register="password"
-                />
+            <form onSubmit={handleSubmit(onSubmit)}>
+
+                <div className={styles["input-container"]}>
+                    <label htmlFor="username">Username:</label>
+                    <input
+                        type="text"
+                        name="username"
+                        id="username"
+                        {...register("username")}
+                    />
+                </div>
+
+                <div className={styles["input-container"]}>
+                    <label htmlFor="password">Password:</label>
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        {...register("password")}
+                    />
+                </div>
                 <Button
                     type="submit"
                     text="Log In"
@@ -39,6 +76,7 @@ function LoginPage() {
                 to="/register">here</Link>
             </p>
         </div>
-    </div>}
+    </div>
+}
 
 export default LoginPage;

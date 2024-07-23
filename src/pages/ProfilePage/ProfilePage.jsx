@@ -1,21 +1,20 @@
+import {useContext} from "react";
+import {AuthContext} from "../../context/AuthContext.jsx";
 import styles from "./ProfilePage.module.css"
-import ClassTile from "../../components/ClassTile/ClassTile.jsx";
 
 function ProfilePage() {
-    return <div>
-        <h1>Profile</h1>
-        <p>Name: </p>
-        <p>Email: </p>
+
+    const {user} = useContext(AuthContext);
+
+   console.log(user);
+
+    return <section className={styles["profile-page"]}>
+        <p>Name: {user.username} </p>
+        <p>Email: {user.email}</p>
         <p>Favourites: </p>
-        <ClassTile
-        name="Druid"
-        slug="druid"
-        />
-        <ClassTile
-        name="Wizard"
-        slug="wizard"
-        />
-    </div>
+    </section>
+
+
 }
 
 export default ProfilePage;
