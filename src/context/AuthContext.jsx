@@ -2,7 +2,7 @@ import {createContext, useEffect, useState} from 'react';
 import {jwtDecode} from "jwt-decode";
 import {useNavigate} from 'react-router-dom';
 import axios from "axios";
-
+import {isTokenValid} from "../utils/isTokenValid.js";
 export const AuthContext = createContext({});
 
 function AuthContextProvider({children}) {
@@ -16,17 +16,20 @@ function AuthContextProvider({children}) {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        if (token) {
-            const decoded = jwtDecode(token);
-            void fetchUserData(decoded.sub, token);
-        } else {
+
+        if (!token || !isTokenValid(token)) {
             toggleIsAuthenticated({
                 isAuthenticated: false,
                 user: null,
                 status: "done",
-            })
+            });
+            return;
         }
-    }, [] );
+
+        const decoded = jwtDecode(token);
+        void fetchUserData(decoded.sub, token);
+
+    }, []);
 
     function login(JWT) {
 

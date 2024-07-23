@@ -1,6 +1,6 @@
-import jwtDecode from 'jwt-decode';
+import {jwtDecode} from 'jwt-decode';
 
-export default function isTokenValid(jwtToken) {
+export function isTokenValid(jwtToken) {
 
     const decodedToken = jwtDecode(jwtToken);
     const experationToken = decodedToken.exp;
@@ -10,3 +10,4 @@ export default function isTokenValid(jwtToken) {
 
     return experationToken - nowInUnix > 0;
 }
+
