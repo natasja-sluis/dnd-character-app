@@ -6,13 +6,18 @@
 
 .search-section {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 32px;
 }
 
-form {
+.search-field {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-form {
     display: flex;
     flex-direction: row;
     align-items: center;

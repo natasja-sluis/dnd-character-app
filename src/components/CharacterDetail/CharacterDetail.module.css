@@ -1,7 +1,10 @@
 .class-details {
+    background-color: var(--secondary-color);
     display: flex;
     flex-direction: column;
     padding: 8px;
+    color: var(--secondary-text-color);
+    margin: 16px;
 }
 
 .class-details h1 {
@@ -43,9 +46,16 @@ details h3, details h2 {
     display: none;
 }
 
+.filter-menu-closed {
+    display: none;
+}
+
+.filter-menu-open {
+    display: block;
+}
+
 @media screen and (min-width: 800px) {
     .class-details {
-        box-shadow: var(--standard-shadow);
         padding: 64px;
         margin-top: 50px;
         row-gap: 16px;
@@ -73,16 +83,9 @@ details h3, details h2 {
         font-size: 1.5rem;
     }
 
-    summary h2 {
-        font-size: 3rem;
-    }
-
     .progression-table {
         display: flex;
-        overflow-x: scroll;
-        overflow-y: hidden;
-        scrollbar-color: var(--accent-color) var(--primary-color);
-        scrollbar-width: thin;
+        flex-direction: column;
     }
 }
 

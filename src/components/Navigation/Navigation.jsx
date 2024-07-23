@@ -7,7 +7,7 @@ import {AuthContext} from "../../context/AuthContext.jsx";
 function Navigation() {
 
     const [menuOpen, setMenuOpen] = useState(false);
-    const {logout, login, isAuthenticated} = useContext(AuthContext);
+    const {logout, isAuthenticated} = useContext(AuthContext);
     const navigate = useNavigate();
 
 

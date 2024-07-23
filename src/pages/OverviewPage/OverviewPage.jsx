@@ -14,6 +14,7 @@ function OverviewPage() {
     const [searchTerm, setSearchTerm] = useState("");
 
 
+
     useEffect(() => {
         toggleLoaded(false);
         toggleError(false);
@@ -37,32 +38,35 @@ function OverviewPage() {
         getClasses();
     }, [])
 
-  const filteredClasses =  !searchTerm ? classes.results : classes.results.filter((result) => result.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    const filteredClasses = !searchTerm ? classes.results : classes.results.filter((result) => result.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
 
     return <>
         <main className={styles["outer-content-container"]}>
             <h1>All Classes</h1>
             <section className={styles["search-section"]}>
-                <form>
-                    <label htmlFor="searchTerm"></label>
-                    <input
-                        className="search-class-input"
-                        type="text"
-                        name="searchTerm"
-                        id="searchTerm"
-                        placeholder="Search..."
-                        {...register("searchTerm", {
-                            onChange: (e) => {
-                                setSearchTerm(e.target.value);
-                            },
-                        })}
-                        required={true}
-                    />
+                <div className={styles["search-field"]}>
+                    <form className={styles["search-form"]}>
+                        <label htmlFor="searchTerm"></label>
+                        <input
+                            className="search-class-input"
+                            type="text"
+                            name="searchTerm"
+                            id="searchTerm"
+                            placeholder="Search..."
+                            {...register("searchTerm", {
+                                onChange: (e) => {
+                                    setSearchTerm(e.target.value);
+                                },
+                            })}
+                            required={true}
+                        />
+                    </form>
+
                     <Funnel
                         size={32}
                     />
-                </form>
+                </div>
             </section>
 
             <section className={styles["all-classes-section"]}>
