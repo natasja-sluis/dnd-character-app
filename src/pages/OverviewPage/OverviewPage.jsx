@@ -44,7 +44,7 @@ function OverviewPage() {
                 toggleLoaded(true);
             }
         }
-        getClasses();
+        void getClasses();
     }, [spellCastingAbility])
 
     const filteredClasses = !searchTerm ? classes.results : classes.results.filter((result) => result.name.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -78,20 +78,38 @@ function OverviewPage() {
                         size={32}
                         onClick={() => setSpellCastingAbility("")}
                     />
-
                 </div>
+
                 <ul className={menuOpen ? styles["open-menu"] : styles["closed-menu"]}>
                     <li>
                         Filter on Spell Casting Ability
                     </li>
                     <li>
-                        <button type="button" onClick={() => setSpellCastingAbility("charisma")}>Charisma</button>
+                        <button
+                            className={styles["filter-button"]}
+                            type="button"
+                            onClick={() => setSpellCastingAbility("charisma")}
+                        >
+                            Charisma
+                        </button>
                     </li>
                     <li>
-                        <button type="button" onClick={() => setSpellCastingAbility("wisdom")}>Wisdom</button>
+                        <button
+                            className={styles["filter-button"]}
+                            type="button"
+                            onClick={() => setSpellCastingAbility("wisdom")}
+                        >
+                            Wisdom
+                        </button>
                     </li>
                     <li>
-                        <button type="button" onClick={() => setSpellCastingAbility("intelligence")}>Intelligence</button>
+                        <button
+                            className={styles["filter-button"]}
+                            type="button"
+                            onClick={() => setSpellCastingAbility("intelligence")}
+                        >
+                            Intelligence
+                        </button>
                     </li>
                 </ul>
             </section>

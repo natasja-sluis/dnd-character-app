@@ -42,6 +42,11 @@
     display: none;
 }
 
+.filter-button:active, .filter-button:focus {
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+}
+
 @media (min-width: 800px) {
     .all-classes-section {
         display: flex;
