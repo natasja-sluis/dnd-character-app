@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import ClassTile from "../../components/ClassTile/ClassTile.jsx";
-import {Funnel} from "@phosphor-icons/react";
+import {Backspace, Funnel} from "@phosphor-icons/react";
 import styles from "./OverviewPage.module.css"
 
 function OverviewPage() {
@@ -12,7 +12,8 @@ function OverviewPage() {
     const [loaded, toggleLoaded] = useState(false);
     const [error, toggleError] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
-
+    const [menuOpen, toggleMenuOpen] = useState(false);
+    const [spellCastingAbility, setSpellCastingAbility] = useState("");
 
 
     useEffect(() => {
@@ -21,11 +22,19 @@ function OverviewPage() {
         const controller = new AbortController();
         const getClasses = async () => {
             try {
-                const response = await axios.get("https://api.open5e.com/classes",
-                    {
-                        signal: controller.signal,
-                    });
-                setClasses(response.data);
+                if (spellCastingAbility) {
+                    const response = await axios.get(`https://api.open5e.com/v1/classes/?spellcasting_ability__icontains=${spellCastingAbility}`,
+                        {
+                            signal: controller.signal,
+                        });
+                    setClasses(response.data);
+                } else {
+                    const response = await axios.get("https://api.open5e.com/classes",
+                        {
+                            signal: controller.signal,
+                        });
+                    setClasses(response.data);
+                }
                 return function cleanup() {
                     controller.abort();
                 }
@@ -36,10 +45,9 @@ function OverviewPage() {
             }
         }
         getClasses();
-    }, [])
+    }, [spellCastingAbility])
 
     const filteredClasses = !searchTerm ? classes.results : classes.results.filter((result) => result.name.toLowerCase().includes(searchTerm.toLowerCase()));
-
 
     return <>
         <main className={styles["outer-content-container"]}>
@@ -62,11 +70,30 @@ function OverviewPage() {
                             required={true}
                         />
                     </form>
-
                     <Funnel
+                        onClick={() => toggleMenuOpen(!menuOpen)}
                         size={32}
                     />
+                    <Backspace
+                        size={32}
+                        onClick={() => setSpellCastingAbility("")}
+                    />
+
                 </div>
+                <ul className={menuOpen ? styles["open-menu"] : styles["closed-menu"]}>
+                    <li>
+                        Filter on Spell Casting Ability
+                    </li>
+                    <li>
+                        <button type="button" onClick={() => setSpellCastingAbility("charisma")}>Charisma</button>
+                    </li>
+                    <li>
+                        <button type="button" onClick={() => setSpellCastingAbility("wisdom")}>Wisdom</button>
+                    </li>
+                    <li>
+                        <button type="button" onClick={() => setSpellCastingAbility("intelligence")}>Intelligence</button>
+                    </li>
+                </ul>
             </section>
 
             <section className={styles["all-classes-section"]}>

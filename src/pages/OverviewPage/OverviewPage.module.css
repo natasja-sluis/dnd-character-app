@@ -33,6 +33,15 @@
     row-gap: 16px;
 }
 
+.open-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.closed-menu {
+    display: none;
+}
+
 @media (min-width: 800px) {
     .all-classes-section {
         display: flex;

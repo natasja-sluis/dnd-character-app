@@ -6,7 +6,7 @@ import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Navigation() {
 
-    const [menuOpen, setMenuOpen] = useState(false);
+    const [menuOpen, toggleMenuOpen] = useState(false);
     const {logout, isAuthenticated} = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ function Navigation() {
             <Link to="/">
                 <h2 className={styles["navigation-title"]}>D&D</h2>
             </Link>
-            <div className={styles["mobile-menu"]} onClick={() => setMenuOpen(!menuOpen)}>
+            <div className={styles["mobile-menu"]} onClick={() => toggleMenuOpen(!menuOpen)}>
                 {menuOpen ?
                     <XSquare
                         size={32}
