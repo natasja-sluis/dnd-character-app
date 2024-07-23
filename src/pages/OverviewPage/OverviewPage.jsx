@@ -1,16 +1,25 @@
 import {useState, useEffect} from 'react'
 import axios from "axios";
+import {useForm} from "react-hook-form";
 import ClassTile from "../../components/ClassTile/ClassTile.jsx";
+import {MagnifyingGlass, Funnel} from "@phosphor-icons/react";
 import styles from "./OverviewPage.module.css"
 
 function OverviewPage() {
+
+    const {handleSubmit, register} = useForm();
+
     const [classes, setClasses] = useState({});
-    const [loaded, toggleLoaded] = useState(false);
-    const [error, toggleError] = useState(false);
+    const [loadedAllClasses, toggleLoadedAllClasses] = useState(false);
+    const [errorAllClasses, toggleErrorAllClasses] = useState(false);
+    const [singleClass, setSingleClass] = useState({});
+    const [loadedSingleClass, toggleLoadedSingleClass] = useState(false);
+    const [errorSingleClass, toggleErrorSingleClass] = useState(false);
+
 
     useEffect(() => {
-        toggleLoaded(false);
-        toggleError(false);
+        toggleLoadedAllClasses(false);
+        toggleErrorAllClasses(false);
         const controller = new AbortController();
         const getClasses = async () => {
             try {
@@ -23,30 +32,65 @@ function OverviewPage() {
                     controller.abort();
                 }
             } catch (error) {
-                toggleError(true);
+                toggleErrorAllClasses(true);
             } finally {
-                toggleLoaded(true);
+                toggleLoadedAllClasses(true);
             }
         }
         getClasses();
     }, [])
 
+        async function fetchSingleClass(data) {
+            toggleErrorSingleClass(false);
+            toggleLoadedSingleClass(false);
+            try {
+                const response = await axios.get(`https://api.open5e.com/classes/${data.classname.toLowerCase()}/`)
+                setSingleClass(response.data);
+                toggleLoadedSingleClass(true);
+            } catch(error) {
+                console.error(error);
+                toggleErrorSingleClass(true);
+            }
+        }
 
     return <>
         <main className={styles["outer-content-container"]}>
             <h1>All Classes</h1>
+            <section className={styles["search-section"]}>
+                <form onSubmit={handleSubmit(fetchSingleClass)}>
+                    <label htmlFor="classname"></label>
+                    <input
+                        className="search-class-input"
+                        type="text"
+                        name="classname"
+                        id="classname"
+                        placeholder="Please enter a class..."
+                        {...register("classname")}
+                        required={true}
+                    />
+                        <MagnifyingGlass
+                            size={32}
+                        />
+                    <Funnel size={32}/>
+                </form>
+            </section>
+
             <section className={styles["all-classes-section"]}>
-                <div className={styles["inner-container"]}>
-                    {!loaded && <div className={styles["loading-message"]}>Loading...</div>}
-                    {error && <p className={styles["error-message"]}>Sorry, something went wrong.</p>}
-                    {loaded && !error && classes.results.map((result) => {
+                {loadedSingleClass && !errorSingleClass ? <ClassTile
+                    key={singleClass.id}
+                    name={singleClass.name}
+                    slug={singleClass.slug}
+                /> : <div className={styles["inner-container"]}>
+                    {!loadedAllClasses && <div className={styles["loading-message"]}>Loading...</div>}
+                    {errorAllClasses && <p className={styles["error-message"]}>Sorry, something went wrong.</p>}
+                    {loadedAllClasses && !errorAllClasses && classes.results.map((result) => {
                         return <ClassTile
-                        key={result.name}
-                        name={result.name}
-                        slug={result.slug}
+                            key={result.name}
+                            name={result.name}
+                            slug={result.slug}
                         />
                     })}
-                </div>
+                </div>}
             </section>
         </main>
     </>

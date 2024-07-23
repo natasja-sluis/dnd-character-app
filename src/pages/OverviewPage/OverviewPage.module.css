@@ -4,6 +4,21 @@
     align-items: center;
 }
 
+.search-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 32px;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 .inner-container {
     display: flex;
     flex-direction: row;
@@ -27,6 +42,11 @@
 
     .outer-content-container h1 {
         font-size: 4rem;
+    }
+
+    .search-section input {
+        width: 333px;
+        padding: 8px;
     }
 }
 
