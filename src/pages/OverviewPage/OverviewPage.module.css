@@ -42,6 +42,11 @@
     display: none;
 }
 
+.search-icons:hover {
+    cursor: pointer;
+    color: var(--accent-color);
+}
+
 .filter-button:active, .filter-button:focus {
     background-color: var(--secondary-color);
     color: var(--accent-color);

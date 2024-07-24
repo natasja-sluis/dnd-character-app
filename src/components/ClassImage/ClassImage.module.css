@@ -8,4 +8,11 @@
     position: absolute;
     top: 4px;
     right: 4px;
+    text-shadow: var(--standard-shadow);
 }
+
+.favourite-icon:hover {
+    fill: red;
+    cursor: pointer;
+}
+

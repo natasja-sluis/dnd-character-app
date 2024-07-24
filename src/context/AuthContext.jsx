@@ -9,6 +9,7 @@ function AuthContextProvider({children}) {
     const [isAuthenticated, toggleIsAuthenticated] = useState({
         isAuthenticated: false,
         user: null,
+        favourites: null,
         status: "pending",
     });
     const navigate = useNavigate();
@@ -21,6 +22,7 @@ function AuthContextProvider({children}) {
             toggleIsAuthenticated({
                 isAuthenticated: false,
                 user: null,
+                favourites: null,
                 status: "done",
             });
             return;
@@ -44,6 +46,7 @@ function AuthContextProvider({children}) {
         toggleIsAuthenticated({
             isAuthenticated: false,
             user: null,
+            favourites: null,
             status: "done",
         })
         navigate("/");
@@ -66,6 +69,7 @@ function AuthContextProvider({children}) {
                     email: result.data.email,
                     id: result.data.id,
                 },
+                favourites: [],
                 status: "done",
             })
 

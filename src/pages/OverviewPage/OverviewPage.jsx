@@ -71,10 +71,12 @@ function OverviewPage() {
                         />
                     </form>
                     <Funnel
+                        className={styles["search-icons"]}
                         onClick={() => toggleMenuOpen(!menuOpen)}
                         size={32}
                     />
                     <Backspace
+                        className={styles["search-icons"]}
                         size={32}
                         onClick={() => setSpellCastingAbility("")}
                     />
