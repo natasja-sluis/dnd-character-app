@@ -71,7 +71,6 @@ function RegisterPage() {
                 </div>
 
                 <div className={styles["input-container"]}>
-
                     <label htmlFor="email">Email:</label>
                     <input
                         type="email"
@@ -79,7 +78,6 @@ function RegisterPage() {
                         id="email"
                         {...register("email")}
                     />
-
                 </div>
 
                 <div className={styles["input-container"]}>
@@ -100,7 +98,6 @@ function RegisterPage() {
                 >
                     Register
                 </button>
-
 
             </form>
             <p className={styles["authentication-message"]}>Already have an account? <br/> Log in <Link

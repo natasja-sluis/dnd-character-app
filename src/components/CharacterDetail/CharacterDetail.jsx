@@ -3,7 +3,6 @@ import Markdown from "markdown-to-jsx";
 import ClassImage from "../ClassImage/ClassImage.jsx";
 import InAppNavigation from "../InAppNavigation/InAppNavigation.jsx";
 
-
 function CharacterDetail({
                              armor,
                              description,
@@ -21,6 +20,7 @@ function CharacterDetail({
                              tools,
                              weapons,
                          }) {
+
     return <div className={styles["class-details"]}>
         <InAppNavigation
             navigate="/overview"
@@ -40,79 +40,69 @@ function CharacterDetail({
         </div>
 
         <div className={styles["class-body-details"]}>
-
-            <details>
-                <summary><h2>Class Features</h2></summary>
-                <h3>Hit Points</h3>
-                <ul>
-                    <li>
-                        Hit dice: {hitdice}
-                    </li>
-                    <li>
-                        HP at first level: {HPStart}
-                    </li>
-                    <li>
-                        Hit Points at Higher Levels: {HPLevelUp}
-                    </li>
-                </ul>
+            <h2 id="classfeatures">Class Features</h2>
+            <h3>Hit Points</h3>
+            <ul>
+                <li>
+                    Hit dice: {hitdice}
+                </li>
+                <li>
+                    HP at first level: {HPStart}
+                </li>
+                <li>
+                    Hit Points at Higher Levels: {HPLevelUp}
+                </li>
+            </ul>
 
 
-                <h3>Proficiencies</h3>
-                <ul>
-                    <li>
-                        Armor proficiency: {armor}
-                    </li>
-                    <li>
-                        Weapon proficiency: {weapons}
-                    </li>
-                    <li>
-                        Tool proficiency: {tools}
-                    </li>
-                    <li>
-                        Saving throws: {savingThrows}
-                    </li>
-                    <li>
-                        Skill proficiency: {skill}
-                    </li>
-                </ul>
+            <h3>Proficiencies</h3>
+            <ul>
+                <li>
+                    Armor proficiency: {armor}
+                </li>
+                <li>
+                    Weapon proficiency: {weapons}
+                </li>
+                <li>
+                    Tool proficiency: {tools}
+                </li>
+                <li>
+                    Saving throws: {savingThrows}
+                </li>
+                <li>
+                    Skill proficiency: {skill}
+                </li>
+            </ul>
 
-                <h3>Equipment</h3>
-                <ul>
-                    <li>
-                        {equipment}
-                    </li>
-                </ul>
-            </details>
+            <h3>Equipment</h3>
+            <ul>
+                <li>
+                    {equipment}
+                </li>
+            </ul>
 
-            <details>
-                <summary>
-                    <h2>Class Abilities</h2>
-                </summary>
-                <Markdown>{description}</Markdown>
-            </details>
 
-            <details className={styles["progression-table"]}>
-                <summary>
-                    <h2>Class Progression</h2>
-                </summary>
+            <h2 id="classabilities">Class Abilities</h2>
+
+            <Markdown>{description}</Markdown>
+
+            <div className={styles["progression-table"]}>
+                <h2>Class Progression</h2>
                 <Markdown>{table}</Markdown>
-            </details>
+            </div>
 
-            <details>
-                <summary>
-                    <h2>{subclassName}</h2>
-                </summary>
-                <ul>
-                    {subclasses.map((subclass) => {
-                        return (<li key={subclass.slug}>
-                                {subclass.name}
-                            </li>
-                        )
-                    })}
-                </ul>
-            </details>
+            <h2 id="subclasses">{subclassName}</h2>
+
+            <ul>
+                {subclasses.map((subclass) => {
+                    return (<li key={subclass.slug}>
+                            {subclass.name}
+                        </li>
+                    )
+                })}
+            </ul>
         </div>
-    </div>
+    </div>;
 }
 
 export default CharacterDetail;
