@@ -1,7 +1,7 @@
 import getPicture from "../../utils/getPicture.js";
 import {Heart} from "@phosphor-icons/react";
 import styles from "./ClassImage.module.css";
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
 
 function ClassImage({characterName}) {
@@ -9,11 +9,11 @@ function ClassImage({characterName}) {
     const {user, setUserInfoFavourites} = useContext(AuthContext);
 
     const currentFavourites = user.info ? user.info.split(",") : [];
-    const isFavourite = currentFavourites.includes(characterName)
+
+    const isFavourite = currentFavourites.includes(characterName);
 
     function handleFavourites() {
         const newFavourites = [...currentFavourites];
-
 
         if (isFavourite) {
             const index = currentFavourites.indexOf(characterName);
@@ -32,7 +32,8 @@ function ClassImage({characterName}) {
             size={32}
             weight="fill"
             fill={isFavourite ? "red" : "white"}
-            onClick={handleFavourites}/>
+            onClick={handleFavourites}
+        />
     </div>
 }
 

@@ -16,10 +16,9 @@
     flex-direction: row-reverse;
 }
 
-.class-card:hover {
-    transform: scale(1.1);
+.name-class-card:hover {
     cursor: pointer;
-    transition: ease-out 0.3s;
+    text-decoration: underline;
 }
 
 .title-container {

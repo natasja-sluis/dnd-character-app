@@ -7,7 +7,8 @@ function ProfilePage() {
 
     const {user} = useContext(AuthContext);
 
-    const favourites = user.info ? user.info.split(",") : [];
+    const favourites = user.info ? user.info.split(",") : undefined;
+
 
     return <section className={styles["profile-page"]}>
         <p>Name: {user.username} </p>

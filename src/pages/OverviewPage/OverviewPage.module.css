@@ -46,7 +46,7 @@
     cursor: pointer;
 }
 
-.search-icon:hover {
+.search-icons:hover {
     color: var(--accent-color);
 }
 
