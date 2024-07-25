@@ -1,8 +1,6 @@
 import {Link, useNavigate} from "react-router-dom";
 import {WaveSine} from "@phosphor-icons/react"
 import styles from "./Homepage.module.css"
-import {useContext} from "react";
-import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Homepage() {
 
