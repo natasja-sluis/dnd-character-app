@@ -3,13 +3,14 @@ import {jwtDecode} from "jwt-decode";
 import {useNavigate} from 'react-router-dom';
 import axios from "axios";
 import {isTokenValid} from "../utils/isTokenValid.js";
+
+
 export const AuthContext = createContext({});
 
 function AuthContextProvider({children}) {
     const [isAuthenticated, toggleIsAuthenticated] = useState({
         isAuthenticated: false,
         user: null,
-        favourites: null,
         status: "pending",
     });
     const navigate = useNavigate();
@@ -22,7 +23,6 @@ function AuthContextProvider({children}) {
             toggleIsAuthenticated({
                 isAuthenticated: false,
                 user: null,
-                favourites: null,
                 status: "done",
             });
             return;
@@ -34,7 +34,6 @@ function AuthContextProvider({children}) {
     }, []);
 
     function login(JWT) {
-
         localStorage.setItem("token", JWT);
         const decoded = jwtDecode(JWT);
 
@@ -46,7 +45,6 @@ function AuthContextProvider({children}) {
         toggleIsAuthenticated({
             isAuthenticated: false,
             user: null,
-            favourites: null,
             status: "done",
         })
         navigate("/");
@@ -68,8 +66,8 @@ function AuthContextProvider({children}) {
                     username: result.data.username,
                     email: result.data.email,
                     id: result.data.id,
+                    info: result.data.info,
                 },
-                favourites: [],
                 status: "done",
             })
 
@@ -78,14 +76,41 @@ function AuthContextProvider({children}) {
             }
 
         } catch (error) {
+            toggleIsAuthenticated({
+                ...isAuthenticated,
+                isAuthenticated: false,
+                user: null,
+                status: "done",
+            })
+        }
+    }
+
+
+    async function addToFavourites({username, name}) {
+        const token = localStorage.getItem("token");
+
+        try {
+            await axios.put(`https://api.datavortex.nl/classesdndapp/users/${username}`, {
+                    "info": name,
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}`,
+                        'X-Api-Key': 'classesdndapp:gojvJ2W0a5H9EWvzN8bl',
+                    },
+                }
+            )
+        } catch (error) {
             console.error(error);
         }
     }
+
 
     const contextData = {
         ...isAuthenticated,
         login,
         logout,
+        addToFavourites,
     }
 
     return (

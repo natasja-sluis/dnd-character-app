@@ -23,12 +23,11 @@ function RegisterPage() {
 
 
     async function onSubmit(data) {
-        console.log(data);
         toggleError(false);
         toggleLoading(true);
 
         try {
-          const response =  await axios.post("https://api.datavortex.nl/classesdndapp/users",  {
+         await axios.post("https://api.datavortex.nl/classesdndapp/users",  {
                 "username": data.username,
                 "email": data.email,
                 "password": data.password,
@@ -45,7 +44,6 @@ function RegisterPage() {
                 cancelToken: source.token,
             });
             navigate("/login")
-            console.log(response);
         } catch (error) {
             console.error(error);
             toggleError(true);
