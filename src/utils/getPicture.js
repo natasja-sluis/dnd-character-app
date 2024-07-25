@@ -11,31 +11,32 @@ import sorcerer from "/src/assets/images/mythjourneys-dnd-character-dragonborn-m
 import warlock from "/src/assets/images/dnd-character-lizardfolk-female-warlock-in-a-swamp.jpg";
 import wizard from "/src/assets/images/mythjourneys-dnd-character-human-female-wizard-sorcerer-2.jpg";
 
-export default function getPicture(name) {
-    switch(name) {
-        case "Barbarian":
+export default function getPicture(characterName) {
+
+    switch(characterName) {
+        case "barbarian":
             return barbarian;
-        case "Bard":
+        case "bard":
             return bard;
-        case "Cleric":
+        case "cleric":
             return cleric;
-        case "Druid":
+        case "druid":
             return druid;
-        case "Fighter":
+        case "fighter":
             return fighter;
-        case "Monk":
+        case "monk":
             return monk;
-        case "Paladin":
+        case "paladin":
             return paladin;
-        case "Ranger":
+        case "ranger":
             return ranger;
-        case "Rogue":
+        case "rogue":
             return rogue;
-        case "Sorcerer":
+        case "sorcerer":
             return sorcerer;
-        case "Warlock":
+        case "warlock":
             return warlock;
-        case "Wizard":
+        case "wizard":
             return wizard;
         default:
             return fighter;

@@ -1,5 +1,25 @@
 .profile-page {
     display: flex;
     flex-direction: column;
+    row-gap: 64px;
+    margin-top: 64px;
 }
+
+.favourites-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 32px;
+}
+
+.inner-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    column-gap: 64px;
+    row-gap: 16px;
+}
+
+
 

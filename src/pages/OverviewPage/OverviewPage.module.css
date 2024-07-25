@@ -42,7 +42,15 @@
     display: none;
 }
 
-.filter-button:active, .filter-button:focus {
+.search-icons:hover, .filter-button:hover {
+    cursor: pointer;
+}
+
+.search-icons:hover {
+    color: var(--accent-color);
+}
+
+.filter-button:active, .filter-button:focus, .filter-button:hover {
     background-color: var(--secondary-color);
     color: var(--accent-color);
 }

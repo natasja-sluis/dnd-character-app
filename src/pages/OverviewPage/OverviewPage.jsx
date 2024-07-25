@@ -71,10 +71,12 @@ function OverviewPage() {
                         />
                     </form>
                     <Funnel
+                        className={styles["search-icons"]}
                         onClick={() => toggleMenuOpen(!menuOpen)}
                         size={32}
                     />
                     <Backspace
+                        className={styles["search-icons"]}
                         size={32}
                         onClick={() => setSpellCastingAbility("")}
                     />
@@ -121,7 +123,7 @@ function OverviewPage() {
                     {loaded && !error && filteredClasses.map((result) => {
                         return <ClassTile
                             key={result.name}
-                            name={result.name}
+                            characterName={result.name}
                             slug={result.slug}
                         />
                     })}

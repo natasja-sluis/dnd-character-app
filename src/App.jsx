@@ -45,7 +45,7 @@ function App() {
                     element={isAuthenticated ? <ProfilePage/> : <Navigate to="/login"/>}
                 />
                 <Route
-                    path="/class/:characterClassName"
+                    path="/class/:characterName"
                     element={<DetailPage/>}
                 />
                 <Route

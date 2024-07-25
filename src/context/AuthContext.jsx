@@ -3,6 +3,8 @@ import {jwtDecode} from "jwt-decode";
 import {useNavigate} from 'react-router-dom';
 import axios from "axios";
 import {isTokenValid} from "../utils/isTokenValid.js";
+
+
 export const AuthContext = createContext({});
 
 function AuthContextProvider({children}) {
@@ -29,10 +31,9 @@ function AuthContextProvider({children}) {
         const decoded = jwtDecode(token);
         void fetchUserData(decoded.sub, token);
 
-    }, []);
+    }, [fetchUserData, isAuthenticated.user]);
 
     function login(JWT) {
-
         localStorage.setItem("token", JWT);
         const decoded = jwtDecode(JWT);
 
@@ -65,6 +66,7 @@ function AuthContextProvider({children}) {
                     username: result.data.username,
                     email: result.data.email,
                     id: result.data.id,
+                    info: result.data.info,
                 },
                 status: "done",
             })
@@ -74,14 +76,45 @@ function AuthContextProvider({children}) {
             }
 
         } catch (error) {
-            console.error(error);
+            toggleIsAuthenticated({
+                ...isAuthenticated,
+                isAuthenticated: false,
+                user: null,
+                status: "done",
+            })
         }
     }
+
+        async function setUserInfoFavourites(favourites) {
+            const token = localStorage.getItem("token");
+            const username = isAuthenticated.user && isAuthenticated.user.username;
+
+            if (!username) {
+                console.error('no username found');
+                return;
+            }
+
+            try {
+                const payload = favourites.join(',');
+                await axios.put(`https://api.datavortex.nl/classesdndapp/users/${username}`, {
+                        "info": payload,
+                    }, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Authorization: `Bearer ${token}`,
+                            'X-Api-Key': 'classesdndapp:gojvJ2W0a5H9EWvzN8bl',
+                        },
+                    }
+                )
+            } catch (error) {
+                console.error(error);
+            }}
 
     const contextData = {
         ...isAuthenticated,
         login,
         logout,
+        setUserInfoFavourites,
     }
 
     return (

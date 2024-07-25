@@ -6,23 +6,23 @@ import styles from "./DetailPage.module.css"
 
 function DetailPage() {
 
-    const [characterClass, setCharacterClass] = useState({});
+    const [character, setCharacter] = useState({});
     const [loaded, toggleLoaded] = useState(false);
     const [error, toggleError] = useState(false);
 
-    const {characterClassName} = useParams();
+    const {characterName} = useParams();
 
     useEffect(() => {
         toggleLoaded(false);
         toggleError(false);
         const controller = new AbortController();
-        const getCharacterClass = async () => {
+        const getCharacter = async () => {
             try {
-                const response = await axios.get(`https://api.open5e.com/v1/classes/${characterClassName.toLowerCase()}/`,
+                const response = await axios.get(`https://api.open5e.com/v1/classes/${characterName.toLowerCase()}/`,
                     {
                         signal: controller.signal,
                     });
-                setCharacterClass(response.data);
+                setCharacter(response.data);
                 return function cleanup() {
                     controller.abort();
                 }
@@ -32,8 +32,8 @@ function DetailPage() {
                 toggleLoaded(true);
             }
         }
-        getCharacterClass();
-    }, [characterClassName])
+        getCharacter();
+    }, [characterName])
 
 
     return <>
@@ -44,21 +44,21 @@ function DetailPage() {
                     {error && <p className={styles["error-message"]}>Sorry, something went wrong.</p>}
                     {loaded && !error &&
                         <CharacterDetail
-                            armor={characterClass.prof_armor}
-                            description={characterClass.desc}
-                            equipment={characterClass.equipment}
-                            hitdice={characterClass.hit_dice}
-                            HPLevelUp={characterClass.hp_at_higher_levels}
-                            HPStart={characterClass.hp_at_1st_level}
-                            name={characterClass.name}
-                            savingThrows={characterClass.prof_saving_throws}
-                            skill={characterClass.prof_skills}
-                            spellCasting={characterClass.spellcasting_ability}
-                            subclasses={characterClass.archetypes}
-                            subclassName={characterClass.subtypes_name}
-                            table={characterClass.table}
-                            tools={characterClass.prof_tools}
-                            weapons={characterClass.prof_weapons}
+                            armor={character.prof_armor}
+                            description={character.desc}
+                            equipment={character.equipment}
+                            hitdice={character.hit_dice}
+                            HPLevelUp={character.hp_at_higher_levels}
+                            HPStart={character.hp_at_1st_level}
+                            characterName={character.name}
+                            savingThrows={character.prof_saving_throws}
+                            skill={character.prof_skills}
+                            spellCasting={character.spellcasting_ability}
+                            subclasses={character.archetypes}
+                            subclassName={character.subtypes_name}
+                            table={character.table}
+                            tools={character.prof_tools}
+                            weapons={character.prof_weapons}
                         />
                     }
                 </section>

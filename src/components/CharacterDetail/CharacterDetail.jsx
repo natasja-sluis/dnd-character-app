@@ -10,7 +10,7 @@ function CharacterDetail({
                              hitdice,
                              HPLevelUp,
                              HPStart,
-                             name,
+                             characterName,
                              savingThrows,
                              skill,
                              spellCasting,
@@ -27,10 +27,10 @@ function CharacterDetail({
         />
         <div className={styles["class-header"]}>
             <ClassImage
-                name={name}
+                characterName={characterName}
             />
             <div className={styles["class-header-details"]}>
-                <h1>{name}</h1>
+                <h1>{characterName}</h1>
                 <ul className={styles["class-header-details-list"]}>
                     <li>Hit dice: {hitdice}</li>
                     {spellCasting && <li>SpellCasting: {spellCasting}</li>}
