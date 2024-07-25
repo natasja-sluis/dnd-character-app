@@ -4,24 +4,35 @@ import styles from "./ClassImage.module.css";
 import {useContext} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
 
-function ClassImage({name}) {
+function ClassImage({characterName}) {
 
-    const {user, addToFavourites} = useContext(AuthContext);
+    const {user, setUserInfoFavourites} = useContext(AuthContext);
 
+    const currentFavourites = user.info ? user.info.split(",") : [];
+    const isFavourite = currentFavourites.includes(characterName)
+
+    function handleFavourites() {
+        const newFavourites = [...currentFavourites];
+
+
+        if (isFavourite) {
+            const index = currentFavourites.indexOf(characterName);
+            newFavourites.splice(index, 1);
+        } else {
+            newFavourites.push(characterName);
+        }
+        setUserInfoFavourites(newFavourites);
+    }
 
     return <div className={styles["image-container"]}>
-        <img src={getPicture(name.toLowerCase())}
-             alt={name}/>
+        <img src={getPicture(characterName.toLowerCase())}
+             alt={characterName}/>
         <Heart
             className={styles["favourite-icon"]}
             size={32}
             weight="fill"
-            fill="white"
-            onClick={() => addToFavourites({
-                username: user.username,
-                name: name,
-            })}
-        />
+            fill={isFavourite ? "red" : "white"}
+            onClick={handleFavourites}/>
     </div>
 }
 

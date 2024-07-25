@@ -123,7 +123,7 @@ function OverviewPage() {
                     {loaded && !error && filteredClasses.map((result) => {
                         return <ClassTile
                             key={result.name}
-                            name={result.name}
+                            characterName={result.name}
                             slug={result.slug}
                         />
                     })}

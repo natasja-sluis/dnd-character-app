@@ -86,12 +86,19 @@ function AuthContextProvider({children}) {
     }
 
 
-    async function addToFavourites({username, name}) {
+    async function setUserInfoFavourites(favourites) {
         const token = localStorage.getItem("token");
+        const username = isAuthenticated.user && isAuthenticated.user.username;
+
+        if (!username) {
+            console.error('no username found');
+            return;
+        }
 
         try {
+            const payload = favourites.join(',');
             await axios.put(`https://api.datavortex.nl/classesdndapp/users/${username}`, {
-                    "info": name,
+                    "info": payload,
                 }, {
                     headers: {
                         'Content-Type': 'application/json',
@@ -105,12 +112,11 @@ function AuthContextProvider({children}) {
         }
     }
 
-
     const contextData = {
         ...isAuthenticated,
         login,
         logout,
-        addToFavourites,
+        setUserInfoFavourites,
     }
 
     return (

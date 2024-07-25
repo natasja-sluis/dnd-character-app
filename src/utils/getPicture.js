@@ -11,8 +11,9 @@ import sorcerer from "/src/assets/images/mythjourneys-dnd-character-dragonborn-m
 import warlock from "/src/assets/images/dnd-character-lizardfolk-female-warlock-in-a-swamp.jpg";
 import wizard from "/src/assets/images/mythjourneys-dnd-character-human-female-wizard-sorcerer-2.jpg";
 
-export default function getPicture(name) {
-    switch(name) {
+export default function getPicture(characterName) {
+
+    switch(characterName) {
         case "barbarian":
             return barbarian;
         case "bard":

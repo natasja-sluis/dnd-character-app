@@ -6,9 +6,8 @@ import ClassTile from "../../components/ClassTile/ClassTile.jsx";
 function ProfilePage() {
 
     const {user} = useContext(AuthContext);
-    console.log(user);
 
-    const favourites = user.info && user.info.split(",");
+    const favourites = user.info ? user.info.split(",") : [];
 
     return <section className={styles["profile-page"]}>
         <p>Name: {user.username} </p>
@@ -20,7 +19,7 @@ function ProfilePage() {
                     {favourites.map((favourite) => {
                         return <ClassTile
                             key={favourite}
-                            name={favourite.toLocaleUpperCase()}
+                            characterName={favourite}
                             slug={favourite.toLowerCase()}
                         />
                     })}
