@@ -3,7 +3,7 @@ import "./Button.module.css"
 
 function Button({type, text, linkTo}) {
 
-   const navigate = useNavigate();
+    const navigate = useNavigate();
 
     return <button
         type={type}

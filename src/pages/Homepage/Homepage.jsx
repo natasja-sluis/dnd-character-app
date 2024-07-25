@@ -1,7 +1,8 @@
 import {Link, useNavigate} from "react-router-dom";
-import Button from "../../components/Button/Button.jsx";
 import {WaveSine} from "@phosphor-icons/react"
 import styles from "./Homepage.module.css"
+import {useContext} from "react";
+import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Homepage() {
 
@@ -9,22 +10,29 @@ function Homepage() {
 
     return <div className={styles["homepage-container"]}>
         <div className={styles["text-container"]}>
-            <Link to="/quiz"><h1>Take the quiz</h1></Link>
+            <Link to="/quiz">
+                <h1> Take the quiz </h1>
+            </Link>
         </div>
         <WaveSine
-        size={23}
-    />
+            size={23}
+        />
         <div>
-            <Button
-                text="Log In"
-                linkTo="/login"
-            />
-            <Button
-                text="Register"
-                linkTo="/register"
-            />
+            <button
+                type="button"
+                onClick={() => navigate("/login")}
+            >
+                Log In
+            </button>
+            <button
+                type="button"
+                onClick={() => navigate("/register")}
+            >
+                Register
+            </button>
         </div>
     </div>
+
 }
 
 export default Homepage;

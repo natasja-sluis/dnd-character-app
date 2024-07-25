@@ -6,3 +6,9 @@ button {
     color: var(--secondary-color);
     margin: 8px;
 }
+
+button:hover {
+    cursor: pointer;
+    background: var(--secondary-color);
+    color: var(--accent-color);
+}
