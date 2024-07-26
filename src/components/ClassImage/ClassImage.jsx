@@ -1,7 +1,7 @@
 import getPicture from "../../utils/getPicture.js";
 import {Heart} from "@phosphor-icons/react";
 import styles from "./ClassImage.module.css";
-import {useContext, useState} from "react";
+import {useContext} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
 
 function ClassImage({characterName}) {
