@@ -11,15 +11,26 @@ You can take a quiz which will recommend a class based on your answers. If you p
 
 ## Run Locally
 
+1. Install all packages:
+
+```bash
+  npm install
+```
+
+2. Start the server: 
+
 Start the server
 
 ```bash
   npm run dev
 ```
 
-## Using the Application
+3. Register an account using a username, emailaddress and password or log in using this user information:
 
-You need to register an account using a username, emailadres and password. After your account has been registered you will need to log in using your account to be able to access most features of the application.
+```bash
+  username: TestUser2
+  password: test1234
+```
 
 ## 🔗 Link to Github Repository
 
