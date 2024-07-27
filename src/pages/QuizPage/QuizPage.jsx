@@ -3,13 +3,13 @@ import QuizCard from "../../components/QuizCard/QuizCard.jsx";
 import InAppNavigation from "../../components/InAppNavigation/InAppNavigation.jsx";
 import {questions} from "/src/data/questions.js"
 import styles from "./QuizPage.module.css";
+import {useNavigate} from "react-router-dom";
 
 function QuizPage() {
 
     let [index, setIndex] = useState(0);
     const [question, setQuestion] = useState(questions[index]);
     const [result, toggleResult] = useState(false);
-    console.log(index);
 
     const nextQuestion = () => {
         if (index !== questions.length - 1) {
@@ -18,6 +18,12 @@ function QuizPage() {
         } else {
             toggleResult(true);
         }
+    }
+
+    function handlePreviousQuestion() {
+        index !== 0 &&
+            setIndex(--index);
+            setQuestion(questions[index]);
     }
 
     const resetQuiz = () => {
@@ -39,6 +45,8 @@ function QuizPage() {
         </> : <>
             <div className={styles["question-navigation-container"]}>
                 <InAppNavigation
+                    onClick={handlePreviousQuestion}
+                    navigate={index === 0 && "/"}
                 />
                 <p>{index + 1} of {questions.length}</p>
             </div>

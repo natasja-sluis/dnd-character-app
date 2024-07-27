@@ -15,4 +15,6 @@
     color: var(--secondary-text-color);
     margin: 8px;
     width: 294px;
+    padding: 4px;
+    border-radius: 4px;
 }
