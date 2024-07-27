@@ -6,19 +6,7 @@ You can take a quiz which will recommend a class based on your answers. If you p
 
 ## Screenshots
 
-#### Login Page
-![image](https://github.com/user-attachments/assets/6b40dbc5-feea-4051-b5d0-feefc91bb26a)
-
-#### Overview Page
-![Screenshot 2024-07-27 102905](https://github.com/user-attachments/assets/f10d6a3b-6e74-4cb4-8c00-6f1fb8e4dac1)
-
-
-#### Detail Page
-![Screenshot 2024-07-27 102949](https://github.com/user-attachments/assets/c210abfb-91b0-4f29-9ec2-0da286252ed5)
-
-
-#### Profile Page
-![Screenshot 2024-07-27 103034](https://github.com/user-attachments/assets/30ca7402-07ee-4cdc-90c9-99eb3d4010ff)
+#### Quiz Page
 
 
 ## Run Locally
