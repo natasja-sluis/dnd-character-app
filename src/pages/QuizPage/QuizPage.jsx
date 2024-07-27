@@ -4,6 +4,7 @@ import InAppNavigation from "../../components/InAppNavigation/InAppNavigation.js
 import {questions} from "/src/data/questions.js"
 import styles from "./QuizPage.module.css";
 import {useNavigate} from "react-router-dom";
+import ClassTile from "../../components/ClassTile/ClassTile.jsx";
 
 function QuizPage() {
 
@@ -34,19 +35,24 @@ function QuizPage() {
 
 
     return <div className={styles["quiz-card-container"]}>
-        {result ?  <>
-        <h3>End of Quiz</h3>
-        <button
-        type="button"
-        onClick={resetQuiz}
-        >
-            Reset
-        </button>
-        </> : <>
-            <div className={styles["question-navigation-container"]}>
-                <InAppNavigation
-                    onClick={handlePreviousQuestion}
-                    navigate={index === 0 && "/"}
+        {result ? <div className={styles["result-card"]}>
+                <h3>Your result...</h3>
+                <ClassTile
+                    characterName="warlock"
+                    slug="warlock"
+                />
+                <button
+                    type="button"
+                    onClick={resetQuiz}
+                >
+                    Reset
+                </button>
+            </div>
+            : <>
+                <div className={styles["question-navigation-container"]}>
+                    <InAppNavigation
+                        onClick={handlePreviousQuestion}
+                        navigate={index === 0 && "/"}
                 />
                 <p>{index + 1} of {questions.length}</p>
             </div>

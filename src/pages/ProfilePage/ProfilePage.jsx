@@ -29,7 +29,7 @@ function ProfilePage() {
                     />
                 })}
             </div>
-        </> : <p>Browse <Link to="/overview">all classes</Link> to add your favourites here</p>
+        </> : <p>Browse <Link to="/overview">all classes</Link> to add your favourites here or <Link to="/quiz">take the quiz</Link></p>
         }
         </section>
     </section>
