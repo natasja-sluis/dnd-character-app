@@ -15,15 +15,5 @@
     width: 100%;
 }
 
-.result-card {
-    display: flex;
-    flex-direction: column;
-    row-gap: 16px;
-    align-items: center;
-    margin-top: 64px;
-    border: 1px var(--secondary-color) solid;
-    border-radius: 4px;
-    padding: 16px;
-    background-color: var(--secondary-color);
-}
+
 

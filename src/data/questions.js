@@ -1,4 +1,4 @@
-export const questions = {
+export const quizData = {
     scoreOrder: [
         "barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard"
     ],

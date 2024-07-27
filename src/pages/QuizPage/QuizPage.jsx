@@ -1,72 +1,69 @@
 import {useState} from "react";
 import QuizCard from "../../components/QuizCard/QuizCard.jsx";
 import InAppNavigation from "../../components/InAppNavigation/InAppNavigation.jsx";
-import {questions} from "/src/data/questions.js"
+import {quizData} from "/src/data/questions.js"
 import styles from "./QuizPage.module.css";
 import ClassTile from "../../components/ClassTile/ClassTile.jsx";
+import Button from "../../components/Button/Button.jsx";
+import QuizResults from "../../components/QuizResults/QuizResults.jsx";
 
 function QuizPage() {
 
-    let [index, setIndex] = useState(0);
-    const [question, setQuestion] = useState(questions.questions[index]);
-    const [result, toggleResult] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [showResult, toggleShowResult] = useState(false);
+    const [selectedAnswers, setSelectedAnswers] = useState([]);
+
+    const currentQuestion = quizData.questions[currentIndex];
+
+    console.log(selectedAnswers);
 
     const nextQuestion = () => {
-        if (index !== questions.questions.length - 1) {
-            setIndex(++index);
-            setQuestion(questions.questions[index]);
+        if (currentIndex !== quizData.questions.length - 1) {
+            setCurrentIndex(currentIndex + 1);
         } else {
-            toggleResult(true);
+            toggleShowResult(true);
         }
     }
 
     function handlePreviousQuestion() {
-        index !== 0 &&
-            setIndex(--index);
-            setQuestion(questions.questions[index]);
+        currentIndex !== 0 &&
+        setCurrentIndex(currentIndex - 1);
     }
 
     const resetQuiz = () => {
-        toggleResult(false);
-        setIndex(0);
-        setQuestion(questions.questions[index]);
+        toggleShowResult(false);
+        setCurrentIndex(0);
     }
 
     return <div className={styles["quiz-card-container"]}>
-        {result ? <div className={styles["result-card"]}>
-                <h3>Your result...</h3>
-                <ClassTile
-                    characterName="warlock"
-                    slug="warlock"
-                />
-                <button
-                    type="button"
-                    onClick={resetQuiz}
-                >
-                    Reset
-                </button>
-            </div>
+        {showResult ? <QuizResults
+            selectedAnswers={selectedAnswers}
+            scoreOrder={quizData.scoreOrder}
+            resetQuiz={resetQuiz}
+            />
             : <>
                 <div className={styles["question-navigation-container"]}>
                     <InAppNavigation
                         onClick={handlePreviousQuestion}
-                        navigate={index === 0 && "/"}
-                />
-                <p>{index + 1} of {questions.questions.length}</p>
-            </div>
+                        navigate={currentIndex === 0 && "/"}
+                    />
+                    <p>{currentIndex + 1} of {quizData.questions.length}</p>
+                </div>
 
-            <QuizCard
-                number={index + 1}
-                question={question.question}
-                option={question.answers.map((answer) => answer.option)}
-            />
-            <button
-                type="button"
-                onClick={nextQuestion}
-            >
-                Next
-            </button>
-        </>
+                <QuizCard
+                    currentIndex={currentIndex}
+                    question={currentQuestion}
+                    setSelectedAnswers={setSelectedAnswers}
+                    selectedAnswers={selectedAnswers}
+                />
+
+                <Button
+                    type="button"
+                    onClick={nextQuestion}
+                >
+                    Next
+                </Button>
+            </>
         }
 
     </div>

@@ -1,15 +1,13 @@
-import {useNavigate} from 'react-router-dom';
-import "./Button.module.css"
+import styles from "./Button.module.css"
 
-function Button({type, text, linkTo}) {
-
-    const navigate = useNavigate();
+function Button({type, className, children, ...restProps}) {
 
     return <button
         type={type}
-        onClick={() => navigate({linkTo})}
+        className={`${styles.button} ${className}`}
+        {...restProps}
     >
-        {text}
+        {children}
     </button>
 }
 

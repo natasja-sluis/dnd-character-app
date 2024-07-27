@@ -20,6 +20,26 @@
     border-radius: 4px;
 }
 
+.quiz-card-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.quiz-card-container li {
+    flex-basis: 120px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.quiz-answer-button {
+    flex-basis: auto;
+    background: var(--secondary-color);
+    color: var(--secondary-text-color);
+    border: none;
+}
+
 @media (min-width: 576px) {
   .quiz-card-question {
       width: 500px;
