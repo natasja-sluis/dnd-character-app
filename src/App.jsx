@@ -38,7 +38,7 @@ function App() {
                 />
                 <Route
                     path="/overview"
-                    element={<OverviewPage/>}
+                    element={isAuthenticated ? <OverviewPage/> : <Navigate to="/login" />}
                 />
                 <Route
                     path="/profile"
@@ -46,7 +46,7 @@ function App() {
                 />
                 <Route
                     path="/class/:characterName"
-                    element={<DetailPage/>}
+                    element={isAuthenticated ? <DetailPage/> : <Navigate to="/login"/>}
                 />
                 <Route
                     path="*"

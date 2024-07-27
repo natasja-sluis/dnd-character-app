@@ -1,9 +1,10 @@
 import Markdown from "markdown-to-jsx";
 import ClassImage from "../ClassImage/ClassImage.jsx";
 import InAppNavigation from "../InAppNavigation/InAppNavigation.jsx";
-import {NavigationArrow} from "@phosphor-icons/react";
+import {NavigationArrow, ArrowUp} from "@phosphor-icons/react";
 import styles from "./CharacterDetail.module.css"
 import {useState} from "react";
+import {HashLink} from 'react-router-hash-link';
 
 function CharacterDetail({
                              armor,
@@ -23,7 +24,7 @@ function CharacterDetail({
                              weapons,
                          }) {
 
-   const [pageNavigationOpen, setPageNavigationOpen] = useState(false);
+    const [pageNavigationOpen, setPageNavigationOpen] = useState(false);
 
     return <div className={styles["class-details"]}>
         <div className={styles["page-navigation"]}>
@@ -39,15 +40,24 @@ function CharacterDetail({
 
         {pageNavigationOpen && <ul className={styles["page-navigation-items"]}>
             <li>
-                <a href="#classfeatures">Class Features</a>
+                <HashLink smooth elementId="classfeatures">
+                    Class Features
+                </HashLink>
             </li>
             <li>
-                <a href="#classabilities">Class Abilities</a>
+                <HashLink smooth elementId="classabilities">
+                    Class Abilities
+                </HashLink>
             </li>
             <li className={styles["class-progression-nav-item"]}>
-                <a href="#classprogression">Class Progression</a></li>
+                <HashLink smooth elementId="classprogression">
+                    Class Progression
+                </HashLink>
+            </li>
             <li>
-                <a href="#subclasses">Subclasses</a>
+                <HashLink smooth elementId="subclasses">
+                    Subclasses
+                </HashLink>
             </li>
         </ul>}
 
@@ -66,7 +76,13 @@ function CharacterDetail({
         </div>
 
         <div className={styles["class-body-details"]}>
-            <h2 id="classfeatures">Class Features</h2>
+            <div className={styles["title-navigation-container"]}>
+                <h2 id="classfeatures">Class Features</h2>
+                <HashLink smooth to="#">
+                    <ArrowUp size={32}/>
+                </HashLink>
+            </div>
+
             <h3>Hit Points</h3>
             <ul>
                 <li>
@@ -108,16 +124,31 @@ function CharacterDetail({
             </ul>
 
 
-            <h2 id="classabilities">Class Abilities</h2>
-
+            <div className={styles["title-navigation-container"]}>
+                <h2 id="classabilities">Class Abilities</h2>
+                <HashLink smooth to="#">
+                    <ArrowUp size={32}/>
+                </HashLink>
+            </div>
             <Markdown>{description}</Markdown>
 
             <div className={styles["progression-table"]}>
-                <h2 id="classprogression">Class Progression</h2>
+                <div className={styles["title-navigation-container"]}>
+                    <h2 id="classprogression">Class Progression</h2>
+                    <HashLink smooth to="#">
+                        <ArrowUp size={32}/>
+                    </HashLink>
+                </div>
                 <Markdown>{table}</Markdown>
             </div>
 
-            <h2 id="subclasses">{subclassName}</h2>
+
+            <div className={styles["title-navigation-container"]}>
+                <h2 id="subclasses">{subclassName}</h2>
+                <HashLink smooth to="#">
+                    <ArrowUp size={32}/>
+                </HashLink>
+            </div>
 
             <ul>
                 {subclasses.map((subclass) => {

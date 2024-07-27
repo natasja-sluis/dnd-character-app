@@ -70,6 +70,13 @@
     display: none;
 }
 
+.title-navigation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 @media screen and (min-width: 800px) {
     .class-progression-nav-item {
         display: block;
@@ -102,6 +109,10 @@
     .progression-table {
         display: flex;
         flex-direction: column;
+    }
+
+    .title-navigation-container {
+        flex-direction: row;
     }
 }
 

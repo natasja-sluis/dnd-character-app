@@ -31,7 +31,7 @@ function AuthContextProvider({children}) {
         const decoded = jwtDecode(token);
         void fetchUserData(decoded.sub, token);
 
-    }, [isAuthenticated.user]);
+    }, []);
 
     function login(JWT) {
         localStorage.setItem("token", JWT);
@@ -106,6 +106,7 @@ function AuthContextProvider({children}) {
                         },
                     }
                 )
+                fetchUserData(username, token);
             } catch (error) {
                 console.error(error);
             }}

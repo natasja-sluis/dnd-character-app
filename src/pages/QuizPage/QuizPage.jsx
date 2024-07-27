@@ -3,19 +3,18 @@ import QuizCard from "../../components/QuizCard/QuizCard.jsx";
 import InAppNavigation from "../../components/InAppNavigation/InAppNavigation.jsx";
 import {questions} from "/src/data/questions.js"
 import styles from "./QuizPage.module.css";
-import {useNavigate} from "react-router-dom";
 import ClassTile from "../../components/ClassTile/ClassTile.jsx";
 
 function QuizPage() {
 
     let [index, setIndex] = useState(0);
-    const [question, setQuestion] = useState(questions[index]);
+    const [question, setQuestion] = useState(questions.questions[index]);
     const [result, toggleResult] = useState(false);
 
     const nextQuestion = () => {
-        if (index !== questions.length - 1) {
+        if (index !== questions.questions.length - 1) {
             setIndex(++index);
-            setQuestion(questions[index]);
+            setQuestion(questions.questions[index]);
         } else {
             toggleResult(true);
         }
@@ -24,15 +23,14 @@ function QuizPage() {
     function handlePreviousQuestion() {
         index !== 0 &&
             setIndex(--index);
-            setQuestion(questions[index]);
+            setQuestion(questions.questions[index]);
     }
 
     const resetQuiz = () => {
         toggleResult(false);
         setIndex(0);
-        setQuestion(questions[index]);
+        setQuestion(questions.questions[index]);
     }
-
 
     return <div className={styles["quiz-card-container"]}>
         {result ? <div className={styles["result-card"]}>
@@ -54,17 +52,13 @@ function QuizPage() {
                         onClick={handlePreviousQuestion}
                         navigate={index === 0 && "/"}
                 />
-                <p>{index + 1} of {questions.length}</p>
+                <p>{index + 1} of {questions.questions.length}</p>
             </div>
 
             <QuizCard
                 number={index + 1}
                 question={question.question}
-                option1={question.option1}
-                option2={question.option2}
-                option3={question.option3}
-                option4={question.option4}
-                option5={question.option5}
+                option={question.answers.map((answer) => answer.option)}
             />
             <button
                 type="button"

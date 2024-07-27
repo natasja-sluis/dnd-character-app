@@ -1,25 +1,13 @@
 import styles from "./QuizCard.module.css";
 
 
-function QuizCard({question, number, option1, option2, option3, option4, option5}) {
+function QuizCard({question, number, option}) {
     return <div className={styles["quiz-card"]}>
-        <h3>{number}. {question}</h3>
+        <h4 className={styles["quiz-card-question"]}>{number}. {question}</h4>
         <ul>
-            <li>
-                {option1}
-            </li>
-            <li>
-                {option2}
-            </li>
-            <li>
-                {option3}
-            </li>
-            <li>
-                {option4}
-            </li>
-            <li>
-                {option5}
-            </li>
+            {option.map((option) => {
+                return <li key={option}>{option}</li>;
+            })}
         </ul>
     </div>
 }
