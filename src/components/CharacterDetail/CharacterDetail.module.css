@@ -7,12 +7,48 @@
     margin: 16px;
 }
 
+.page-navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.page-navigation-icon {
+    color: var(--accent-color);
+}
+
+.page-navigation-icon:hover {
+    cursor: pointer;
+}
+
+.page-navigation-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.page-navigation-items li:hover {
+    text-decoration: underline;
+    color: var(--accent-color);
+}
+
+.class-progression-nav-item {
+    display: none;
+}
+
 .class-details h1 {
     font-size: 3rem;
 }
 
 .class-details h2 {
     text-decoration: underline;
+    margin: 16px;
+}
+
+.class-details h3, h4 {
+    margin: 16px;
 }
 
 .class-header {
@@ -30,31 +66,15 @@
     display: none;
 }
 
-details {
-    padding: 16px;
-}
-
-summary h2 {
-    font-size: 2rem;
-}
-
-details h3, details h2 {
-    display: inline;
-}
-
 .progression-table {
     display: none;
 }
 
-.filter-menu-closed {
-    display: none;
-}
-
-.filter-menu-open {
-    display: block;
-}
-
 @media screen and (min-width: 800px) {
+    .class-progression-nav-item {
+        display: block;
+    }
+
     .class-details {
         padding: 64px;
         margin-top: 50px;
@@ -77,10 +97,6 @@ details h3, details h2 {
         flex-direction: row;
         padding: 32px;
         margin: 16px;
-    }
-
-    details, details li, details p {
-        font-size: 1.5rem;
     }
 
     .progression-table {

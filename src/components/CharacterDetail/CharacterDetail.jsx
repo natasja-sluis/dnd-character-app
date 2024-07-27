@@ -1,7 +1,9 @@
-import styles from "./CharacterDetail.module.css"
 import Markdown from "markdown-to-jsx";
 import ClassImage from "../ClassImage/ClassImage.jsx";
 import InAppNavigation from "../InAppNavigation/InAppNavigation.jsx";
+import {NavigationArrow} from "@phosphor-icons/react";
+import styles from "./CharacterDetail.module.css"
+import {useState} from "react";
 
 function CharacterDetail({
                              armor,
@@ -21,10 +23,34 @@ function CharacterDetail({
                              weapons,
                          }) {
 
+   const [pageNavigationOpen, setPageNavigationOpen] = useState(false);
+
     return <div className={styles["class-details"]}>
-        <InAppNavigation
-            navigate="/overview"
-        />
+        <div className={styles["page-navigation"]}>
+            <InAppNavigation
+                navigate="/overview"
+            />
+            <NavigationArrow
+                size={32}
+                className={styles["page-navigation-icon"]}
+                onClick={() => setPageNavigationOpen(!pageNavigationOpen)}
+            />
+        </div>
+
+        {pageNavigationOpen && <ul className={styles["page-navigation-items"]}>
+            <li>
+                <a href="#classfeatures">Class Features</a>
+            </li>
+            <li>
+                <a href="#classabilities">Class Abilities</a>
+            </li>
+            <li className={styles["class-progression-nav-item"]}>
+                <a href="#classprogression">Class Progression</a></li>
+            <li>
+                <a href="#subclasses">Subclasses</a>
+            </li>
+        </ul>}
+
         <div className={styles["class-header"]}>
             <ClassImage
                 characterName={characterName}
@@ -87,7 +113,7 @@ function CharacterDetail({
             <Markdown>{description}</Markdown>
 
             <div className={styles["progression-table"]}>
-                <h2>Class Progression</h2>
+                <h2 id="classprogression">Class Progression</h2>
                 <Markdown>{table}</Markdown>
             </div>
 
