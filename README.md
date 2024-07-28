@@ -30,8 +30,6 @@ You can take a quiz which will recommend a class based on your answers. If you p
 
 3. Start the server: 
 
-Start the server
-
 ```bash
   npm run dev
 ```
