@@ -1,8 +1,8 @@
 import {useContext} from "react";
 import {Link} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext.jsx";
-import styles from "./ProfilePage.module.css"
 import ClassTile from "../../components/ClassTile/ClassTile.jsx";
+import styles from "./ProfilePage.module.css";
 
 function ProfilePage() {
 
@@ -13,7 +13,7 @@ function ProfilePage() {
 
     return <section className={styles["profile-page"]}>
         <h1>Welcome {user.username}!</h1>
-        <section className={styles["user-information"]}>
+        <section>
             <p>Name: <em>{user.username} </em></p>
             <p>Email: <em>{user.email}</em></p>
         </section>

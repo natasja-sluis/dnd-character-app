@@ -1,10 +1,11 @@
+import {useState} from "react";
+import {HashLink} from 'react-router-hash-link';
 import Markdown from "markdown-to-jsx";
 import ClassImage from "../ClassImage/ClassImage.jsx";
 import InAppNavigation from "../InAppNavigation/InAppNavigation.jsx";
 import {NavigationArrow, ArrowUp} from "@phosphor-icons/react";
-import styles from "./CharacterDetail.module.css"
-import {useState} from "react";
-import {HashLink} from 'react-router-hash-link';
+import styles from "./CharacterDetail.module.css";
+
 
 function CharacterDetail({
                              armor,

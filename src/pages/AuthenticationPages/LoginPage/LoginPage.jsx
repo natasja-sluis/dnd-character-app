@@ -1,10 +1,10 @@
 import {useContext, useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import {AuthContext} from "../../../context/AuthContext.jsx";
 import {useForm} from "react-hook-form";
-import axios from "axios"
+import axios from "axios";
+import {AuthContext} from "../../../context/AuthContext.jsx";
 import Button from "../../../components/Button/Button.jsx";
-import styles from "/src/pages/AuthenticationPages/AuthenticationPage.module.css"
+import styles from "/src/pages/AuthenticationPages/AuthenticationPage.module.css";
 
 function LoginPage() {
 
@@ -69,8 +69,10 @@ function LoginPage() {
                 </div>
                 <Button
                     type="submit"
-                    text="Log In"
-                />
+                    className={styles["login-button"]}
+                >
+                    Log in
+                </Button>
             </form>
             <p className={styles["authentication-message"]}>Don't have an account? <br/> Register <Link
                 to="/register">here</Link>

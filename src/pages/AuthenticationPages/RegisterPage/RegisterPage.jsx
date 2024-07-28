@@ -2,7 +2,8 @@ import {useState, useEffect} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import axios from "axios";
-import styles from "/src/pages/AuthenticationPages/AuthenticationPage.module.css"
+import Button from "../../../components/Button/Button.jsx";
+import styles from "/src/pages/AuthenticationPages/AuthenticationPage.module.css";
 
 function RegisterPage() {
 
@@ -27,15 +28,16 @@ function RegisterPage() {
         toggleLoading(true);
 
         try {
-         await axios.post("https://api.datavortex.nl/classesdndapp/users",  {
+            await axios.post("https://api.datavortex.nl/classesdndapp/users", {
                 "username": data.username,
                 "email": data.email,
                 "password": data.password,
                 "authorities": [
-                {
-                    "authority": "USER"
-                }
-            ]}, {
+                    {
+                        "authority": "USER"
+                    }
+                ]
+            }, {
                 headers: {
                     'Content-Type': 'application/json',
                     'X-Api-Key': 'classesdndapp:gojvJ2W0a5H9EWvzN8bl',
@@ -89,15 +91,15 @@ function RegisterPage() {
 
                 </div>
 
-                <button
+                <Button
                     type="submit"
                     className={styles["login-button"]}
                     disabled={loading}
                 >
                     Register
-                </button>
-
+                </Button>
             </form>
+
             <p className={styles["authentication-message"]}>Already have an account? <br/> Log in <Link
                 to="/login">here</Link>
             </p>

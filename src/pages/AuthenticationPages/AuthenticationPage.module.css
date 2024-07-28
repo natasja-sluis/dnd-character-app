@@ -17,10 +17,6 @@
     border-radius: 8px;
 }
 
-.authentication-message {
-    color: var(--secondary-text-color);
-}
-
 .input-container {
     display: flex;
     flex-direction: column;
@@ -28,5 +24,7 @@
     align-items: center;
 }
 
-
+.authentication-message {
+    color: var(--secondary-text-color);
+}
 

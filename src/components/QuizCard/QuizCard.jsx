@@ -1,9 +1,7 @@
 import Button from "../Button/Button.jsx";
 import styles from "./QuizCard.module.css";
 
-
-
-function QuizCard({question, currentIndex, selectedAnswers, setSelectedAnswers}) {
+function QuizCard({question, currentIndex, selectedAnswers, setSelectedAnswers, answerIsSelected}) {
 
     function handleSelectAnswer(answer) {
         const newSelectedAnswers = [...selectedAnswers];
@@ -17,7 +15,7 @@ function QuizCard({question, currentIndex, selectedAnswers, setSelectedAnswers})
             {question.answers.map((answer) => {
                 return <li key={answer.option}>
                     <Button
-                        className={styles["quiz-answer-button"]}
+                        className={answerIsSelected ? styles["quiz-answer-selected-button"] : styles["quiz-answer-button"]}
                         onClick={() => handleSelectAnswer(answer)}>
                         {answer.option}
                     </Button>

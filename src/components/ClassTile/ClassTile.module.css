@@ -6,24 +6,16 @@
     border: 4px solid var(--accent-color);
     border-radius: 8px;
     flex-grow: 0;
+    margin: 8px 0;
 }
 
 .class-card h2 {
     font-size: 1.5rem;
 }
 
-.class-card:nth-child(2n) {
-    flex-direction: row-reverse;
-}
-
 .name-class-card:hover {
     cursor: pointer;
     text-decoration: underline;
-}
-
-.title-container {
-    flex-basis: 200px;
-    text-align: center;
 }
 
 @media (min-width: 800px) {
@@ -33,9 +25,5 @@
 
     .class-card h2 {
         font-size: 2rem;
-    }
-
-    .class-card:nth-child(2n) {
-        flex-direction: row;
     }
 }

@@ -1,11 +1,11 @@
 import {useState} from "react";
+import {quizData} from "/src/data/quizData.js"
 import QuizCard from "../../components/QuizCard/QuizCard.jsx";
 import InAppNavigation from "../../components/InAppNavigation/InAppNavigation.jsx";
-import {quizData} from "/src/data/questions.js"
-import styles from "./QuizPage.module.css";
-import ClassTile from "../../components/ClassTile/ClassTile.jsx";
 import Button from "../../components/Button/Button.jsx";
 import QuizResults from "../../components/QuizResults/QuizResults.jsx";
+import styles from "./QuizPage.module.css";
+
 
 function QuizPage() {
 
@@ -14,8 +14,13 @@ function QuizPage() {
     const [selectedAnswers, setSelectedAnswers] = useState([]);
 
     const currentQuestion = quizData.questions[currentIndex];
+    const currentOptions = quizData.questions[currentIndex].answers.map((answer) => answer.option);
 
-    console.log(selectedAnswers);
+    const answerIsSelected = () => {
+        currentOptions.map((currentOption) => {
+            return currentOption === selectedAnswers;
+        })
+    }
 
     const nextQuestion = () => {
         if (currentIndex !== quizData.questions.length - 1) {
@@ -37,9 +42,9 @@ function QuizPage() {
 
     return <div className={styles["quiz-card-container"]}>
         {showResult ? <QuizResults
-            selectedAnswers={selectedAnswers}
-            scoreOrder={quizData.scoreOrder}
-            resetQuiz={resetQuiz}
+                selectedAnswers={selectedAnswers}
+                scoreOrder={quizData.scoreOrder}
+                resetQuiz={resetQuiz}
             />
             : <>
                 <div className={styles["question-navigation-container"]}>
@@ -55,6 +60,7 @@ function QuizPage() {
                     question={currentQuestion}
                     setSelectedAnswers={setSelectedAnswers}
                     selectedAnswers={selectedAnswers}
+                    answerIsSelected={answerIsSelected}
                 />
 
                 <Button
@@ -65,7 +71,6 @@ function QuizPage() {
                 </Button>
             </>
         }
-
     </div>
 }
 

@@ -1,6 +1,7 @@
 import './App.css'
-import {useContext} from 'react'
 import {Routes, Route, Navigate} from 'react-router-dom'
+import {useContext} from 'react'
+import {AuthContext} from "./context/AuthContext.jsx";
 import Homepage from "./pages/Homepage/Homepage.jsx";
 import Navigation from "./components/Navigation/Navigation.jsx";
 import OverviewPage from "./pages/OverviewPage/OverviewPage.jsx";
@@ -10,7 +11,7 @@ import NotFound from "./pages/NotFound/NotFound.jsx";
 import LoginPage from "./pages/AuthenticationPages/LoginPage/LoginPage.jsx";
 import RegisterPage from "./pages/AuthenticationPages/RegisterPage/RegisterPage.jsx";
 import QuizPage from "./pages/QuizPage/QuizPage.jsx";
-import {AuthContext} from "./context/AuthContext.jsx";
+
 
 function App() {
 

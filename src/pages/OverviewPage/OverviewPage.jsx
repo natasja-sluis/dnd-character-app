@@ -1,9 +1,10 @@
-import {useState, useEffect} from 'react'
-import axios from "axios";
+import {useState, useEffect} from 'react';
 import {useForm} from "react-hook-form";
+import axios from "axios";
+import Button from "../../components/Button/Button.jsx";
 import ClassTile from "../../components/ClassTile/ClassTile.jsx";
 import {Backspace, Funnel} from "@phosphor-icons/react";
-import styles from "./OverviewPage.module.css"
+import styles from "./OverviewPage.module.css";
 
 function OverviewPage() {
 
@@ -57,7 +58,6 @@ function OverviewPage() {
                     <form className={styles["search-form"]}>
                         <label htmlFor="searchTerm"></label>
                         <input
-                            className="search-class-input"
                             type="text"
                             name="searchTerm"
                             id="searchTerm"
@@ -87,31 +87,31 @@ function OverviewPage() {
                         Filter on Spell Casting Ability
                     </li>
                     <li>
-                        <button
+                        <Button
                             className={styles["filter-button"]}
                             type="button"
                             onClick={() => setSpellCastingAbility("charisma")}
                         >
                             Charisma
-                        </button>
+                        </Button>
                     </li>
                     <li>
-                        <button
+                        <Button
                             className={styles["filter-button"]}
                             type="button"
                             onClick={() => setSpellCastingAbility("wisdom")}
                         >
                             Wisdom
-                        </button>
+                        </Button>
                     </li>
                     <li>
-                        <button
+                        <Button
                             className={styles["filter-button"]}
                             type="button"
                             onClick={() => setSpellCastingAbility("intelligence")}
                         >
                             Intelligence
-                        </button>
+                        </Button>
                     </li>
                 </ul>
             </section>

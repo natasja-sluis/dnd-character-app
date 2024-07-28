@@ -40,6 +40,13 @@
     border: none;
 }
 
+.quiz-answer-selected-button {
+    color: var(--accent-color);
+    flex-basis: auto;
+    background: var(--secondary-color);
+    border: none;
+}
+
 @media (min-width: 576px) {
   .quiz-card-question {
       width: 500px;

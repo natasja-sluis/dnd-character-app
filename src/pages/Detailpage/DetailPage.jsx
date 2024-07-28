@@ -1,8 +1,8 @@
 import {useState, useEffect} from "react";
-import axios from "axios";
 import {useParams} from "react-router-dom";
+import axios from "axios";
 import CharacterDetail from "../../components/CharacterDetail/CharacterDetail.jsx";
-import styles from "./DetailPage.module.css"
+import styles from "./DetailPage.module.css";
 
 function DetailPage() {
 

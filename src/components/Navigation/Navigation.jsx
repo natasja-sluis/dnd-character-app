@@ -1,8 +1,9 @@
 import {useContext, useState} from 'react';
 import {Link, NavLink, useNavigate} from "react-router-dom";
+import {AuthContext} from "../../context/AuthContext.jsx";
 import {Dot, List, SignOut, SignIn, XSquare} from "@phosphor-icons/react"
 import styles from "./Navigation.module.css"
-import {AuthContext} from "../../context/AuthContext.jsx";
+
 
 function Navigation() {
 

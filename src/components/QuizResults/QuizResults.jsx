@@ -1,8 +1,8 @@
-import styles from "./QuizResults.module.css"
 import ClassTile from "../ClassTile/ClassTile.jsx";
 import Button from "../Button/Button.jsx";
+import styles from "./QuizResults.module.css"
 
-function QuizResults({selectedAnswers, scoreOrder ,resetQuiz}) {
+function QuizResults({selectedAnswers, scoreOrder, resetQuiz}) {
 
     const totalScores = [];
 
@@ -13,7 +13,7 @@ function QuizResults({selectedAnswers, scoreOrder ,resetQuiz}) {
         }
     }
 
-    const indexOfHighestScore =  totalScores.indexOf(Math.max(...totalScores));
+    const indexOfHighestScore = totalScores.indexOf(Math.max(...totalScores));
 
     return <div className={styles["result-card"]}>
         <h3>Your result...</h3>

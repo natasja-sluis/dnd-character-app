@@ -1,8 +1,9 @@
-import {Link, useNavigate} from "react-router-dom";
-import {WaveSine} from "@phosphor-icons/react"
-import styles from "./Homepage.module.css"
 import {useContext} from "react";
+import {Link, useNavigate} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext.jsx";
+import Button from "../../components/Button/Button.jsx";
+import {WaveSine} from "@phosphor-icons/react";
+import styles from "./Homepage.module.css";
 
 function Homepage() {
 
@@ -11,29 +12,32 @@ function Homepage() {
     const navigate = useNavigate();
 
     return <div className={styles["homepage-container"]}>
-        <p className={styles["textContainer"]}>
+        <div className={styles["homepage-image-container"]}>
+            <img src="/src/assets/images/dnd-background.jpg" alt=" "/>
+            <p className={styles["image-container-text"]}>
             Find out which D&D class fits you best...
         </p>
+        </div>
         <WaveSine
             size={23}
         />
-        {isAuthenticated ? <div className={styles["text-container"]}>
+        {isAuthenticated ? <div>
             <Link to="/quiz">
-                <h1> Take the quiz </h1>
+                <h1 className={styles["take-the-quiz-link"]}> Take the quiz </h1>
             </Link>
         </div> : <div>
-            <button
+            <Button
                 type="button"
                 onClick={() => navigate("/login")}
             >
                 Log In
-            </button>
-            <button
+            </Button>
+            <Button
                 type="button"
                 onClick={() => navigate("/register")}
             >
                 Register
-            </button>
+            </Button>
         </div>
         }
     </div>

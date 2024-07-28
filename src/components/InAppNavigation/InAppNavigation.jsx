@@ -1,5 +1,5 @@
-import {ArrowLeft} from "@phosphor-icons/react";
 import {Link} from "react-router-dom";
+import {ArrowLeft} from "@phosphor-icons/react";
 import styles from "./InAppNavigation.module.css"
 
 function InAppNavigation({navigate, onClick}) {

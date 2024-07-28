@@ -177,6 +177,78 @@ export const quizData = {
                     scores: [2, 3, 3, 5, 4, 3, 2, 4, 1, 2, 3, 4]
                 },
             ]
+        }, {
+            question: 'After you have dealt with the beast, the doors suddenly open with a loud scraping sound. It reveals an empty chamber,  except for a beautifully carved pedestal in the center. On top of it, lies a ring, dimly sparkling in the low light. The room and pedestal are covered the same symbols as the door. What do you do?',
+            answers: [
+                {
+                    option: 'I walk in and ignore the ring, what use do I have for jewelry?',
+                    scores: [4, 1, 3, 4, 2, 5, 2, 3, 1, 1, 1, 2]
+                },
+                {
+                    option: 'I quickly pocket the ring before anyone notices.',
+                    scores: [2, 4, 1, 2, 2, 1, 2, 2, 5, 1, 4, 1,]
+                },
+                {
+                    option: 'I investigate the symbols. What do they mean?',
+                    scores: [1, 2, 4, 2, 3, 1, 4, 3, 2, 3, 3, 4]
+                },
+                {
+                    option: 'I get lost in thought, imagining all the possible uses of the ring.',
+                    scores: [1, 5, 1, 1, 1, 1, 1, 1, 3, 2, 5, 4]
+                },
+                {
+                    option: 'I look for any signs of life; this room seems strangely quiet.',
+                    scores: [2, 3, 3, 5, 4, 3, 2, 4, 1, 2, 3, 4]
+                },
+            ]
+        },  {
+            question: 'After you have dealt with the beast, the doors suddenly open with a loud scraping sound. It reveals an empty chamber,  except for a beautifully carved pedestal in the center. On top of it, lies a ring, dimly sparkling in the low light. The room and pedestal are covered the same symbols as the door. What do you do?',
+            answers: [
+                {
+                    option: 'I walk in and ignore the ring, what use do I have for jewelry?',
+                    scores: [4, 1, 3, 4, 2, 5, 2, 3, 1, 1, 1, 2]
+                },
+                {
+                    option: 'I quickly pocket the ring before anyone notices.',
+                    scores: [2, 4, 1, 2, 2, 1, 2, 2, 5, 1, 4, 1,]
+                },
+                {
+                    option: 'I investigate the symbols. What do they mean?',
+                    scores: [1, 2, 4, 2, 3, 1, 4, 3, 2, 3, 3, 4]
+                },
+                {
+                    option: 'I get lost in thought, imagining all the possible uses of the ring.',
+                    scores: [1, 5, 1, 1, 1, 1, 1, 1, 3, 2, 5, 4]
+                },
+                {
+                    option: 'I look for any signs of life; this room seems strangely quiet.',
+                    scores: [2, 3, 3, 5, 4, 3, 2, 4, 1, 2, 3, 4]
+                },
+            ]
+        },  {
+            question: 'After you have dealt with the beast, the doors suddenly open with a loud scraping sound. It reveals an empty chamber,  except for a beautifully carved pedestal in the center. On top of it, lies a ring, dimly sparkling in the low light. The room and pedestal are covered the same symbols as the door. What do you do?',
+            answers: [
+                {
+                    option: 'I walk in and ignore the ring, what use do I have for jewelry?',
+                    scores: [4, 1, 3, 4, 2, 5, 2, 3, 1, 1, 1, 2]
+                },
+                {
+                    option: 'I quickly pocket the ring before anyone notices.',
+                    scores: [2, 4, 1, 2, 2, 1, 2, 2, 5, 1, 4, 1,]
+                },
+                {
+                    option: 'I investigate the symbols. What do they mean?',
+                    scores: [1, 2, 4, 2, 3, 1, 4, 3, 2, 3, 3, 4]
+                },
+                {
+                    option: 'I get lost in thought, imagining all the possible uses of the ring.',
+                    scores: [1, 5, 1, 1, 1, 1, 1, 1, 3, 2, 5, 4]
+                },
+                {
+                    option: 'I look for any signs of life; this room seems strangely quiet.',
+                    scores: [2, 3, 3, 5, 4, 3, 2, 4, 1, 2, 3, 4]
+                },
+            ]
         },
     ]
 }
