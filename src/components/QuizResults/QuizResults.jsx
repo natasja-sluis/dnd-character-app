@@ -1,9 +1,12 @@
+import {useNavigate} from "react-router-dom";
 import ClassTile from "../ClassTile/ClassTile.jsx";
 import Button from "../Button/Button.jsx";
-import styles from "./QuizResults.module.css"
+import styles from "./QuizResults.module.css";
+
 
 function QuizResults({selectedAnswers, scoreOrder, resetQuiz}) {
 
+    const navigate = useNavigate();
     const totalScores = [];
 
     for (let i = 0; i < selectedAnswers.length; i++) {
@@ -26,6 +29,12 @@ function QuizResults({selectedAnswers, scoreOrder, resetQuiz}) {
             onClick={() => resetQuiz()}
         >
             Reset
+        </Button>
+        <Button
+            type="button"
+            onClick={() => navigate("/overview")}
+        >
+            See all classes
         </Button>
     </div>
 }
