@@ -4,7 +4,7 @@ function Button({type, className, children, ...restProps}) {
 
     return <button
         type={type}
-        className={`${styles.button} ${className}`}
+        className={`${className} ${styles.button}`}
         {...restProps}
     >
         {children}

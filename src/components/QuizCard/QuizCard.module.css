@@ -14,15 +14,17 @@
 .quiz-card li {
     background-color: var(--secondary-color);
     color: var(--secondary-text-color);
-    margin: 8px;
     width: 294px;
-    padding: 4px;
+    padding: 8px;
     border-radius: 4px;
 }
 
 .quiz-card-container {
     display: flex;
-    flex-direction: column;
+    gap: 16px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .quiz-card-container li {

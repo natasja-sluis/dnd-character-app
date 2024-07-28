@@ -2,33 +2,24 @@ import {useState} from "react";
 import {quizData} from "/src/data/quizData.js"
 import QuizCard from "../../components/QuizCard/QuizCard.jsx";
 import InAppNavigation from "../../components/InAppNavigation/InAppNavigation.jsx";
-import Button from "../../components/Button/Button.jsx";
 import QuizResults from "../../components/QuizResults/QuizResults.jsx";
 import styles from "./QuizPage.module.css";
+import {ArrowLeft, ArrowRight} from "@phosphor-icons/react";
 
 
 function QuizPage() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [showResult, toggleShowResult] = useState(false);
     const [selectedAnswers, setSelectedAnswers] = useState([]);
 
     const currentQuestion = quizData.questions[currentIndex];
-    const currentOptions = quizData.questions[currentIndex].answers.map((answer) => answer.option);
-
-    const answerIsSelected = () => {
-        currentOptions.map((currentOption) => {
-            return currentOption === selectedAnswers;
-        })
-    }
+    const isDisabled = selectedAnswers.length < currentIndex + 1;
 
     const nextQuestion = () => {
-        if (currentIndex !== quizData.questions.length - 1) {
-            setCurrentIndex(currentIndex + 1);
-        } else {
-            toggleShowResult(true);
-        }
+        setCurrentIndex(currentIndex + 1)
     }
+
+    const showResult = currentIndex >= quizData.questions.length;
 
     function handlePreviousQuestion() {
         currentIndex !== 0 &&
@@ -36,8 +27,8 @@ function QuizPage() {
     }
 
     const resetQuiz = () => {
-        toggleShowResult(false);
         setCurrentIndex(0);
+        setSelectedAnswers([]);
     }
 
     return <div className={styles["quiz-card-container"]}>
@@ -51,24 +42,36 @@ function QuizPage() {
                     <InAppNavigation
                         onClick={handlePreviousQuestion}
                         navigate={currentIndex === 0 && "/"}
-                    />
+                    >
+                        <ArrowLeft size={56}/>
+
+                    </InAppNavigation>
                     <p>{currentIndex + 1} of {quizData.questions.length}</p>
+                    <InAppNavigation
+                        onClick={() => {
+                            if (!isDisabled) {
+                                nextQuestion()
+                            }
+                        }}
+                        disabled={isDisabled}
+                    >
+                        <ArrowRight
+                            fill={isDisabled ? 'var(--secondary-color)' : 'var(--accent-color)'}
+                            size={56}
+                            className={isDisabled ? styles["disabled-icon"] : " "}
+                        />
+                    </InAppNavigation>
                 </div>
+
 
                 <QuizCard
                     currentIndex={currentIndex}
                     question={currentQuestion}
+                    nextQuestion={nextQuestion}
                     setSelectedAnswers={setSelectedAnswers}
                     selectedAnswers={selectedAnswers}
-                    answerIsSelected={answerIsSelected}
+                    setCurrentIndex={setCurrentIndex}
                 />
-
-                <Button
-                    type="button"
-                    onClick={nextQuestion}
-                >
-                    Next
-                </Button>
             </>
         }
     </div>

@@ -1,9 +1,9 @@
 .authentication-page-container {
     display: flex;
-    height: 100vh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 500px;
 }
 
 .authentication-form {
@@ -26,5 +26,11 @@
 
 .authentication-message {
     color: var(--secondary-text-color);
+}
+
+@media(min-width: 576px) {
+    .authentication-page-container {
+        height: 1000px;
+    }
 }
 
