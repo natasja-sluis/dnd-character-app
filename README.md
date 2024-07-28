@@ -4,7 +4,7 @@ Dungeons and Dragons (D&D) has become increasingly popular over the years but it
 
 ## Table of Contents
 1. Description
-2. Screenshot of quiz page
+2. Screenshot
 3. How to run the application locally
 4. GitHub repository
 5. Author
@@ -13,9 +13,9 @@ Dungeons and Dragons (D&D) has become increasingly popular over the years but it
 
 You can take a quiz which will recommend a class based on your answers. If you prefer to get an idea of which classes are available, you can go to the overview page. Here you use a search bar to look for a specific class or filter on spellcasting ability if you prefer. Lastly you can save your favourites to your profile page.
 
-## 2. Screenshot of quiz page
+## 2. Screenshot
 
-![image](https://github.com/user-attachments/assets/5fd4c972-ebb7-4d0e-b76c-f86c0a42607c)
+![image](https://github.com/user-attachments/assets/30a3d4ec-1de6-4cbf-8fb1-2834c36b9bc8)
 
 
 ## 3. Run Locally
