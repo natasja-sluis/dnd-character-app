@@ -15,6 +15,8 @@ You can take a quiz which will recommend a class based on your answers. If you p
 
 ## 2. Screenshot of quiz page
 
+![image](https://github.com/user-attachments/assets/5fd4c972-ebb7-4d0e-b76c-f86c0a42607c)
+
 
 ## 3. Run Locally
 
