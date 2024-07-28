@@ -6,15 +6,51 @@
     padding: 16px;
 }
 
-.quiz-card h1 {
+.quiz-card-question {
     margin-bottom: 16px;
+    text-transform: none;
 }
 
 .quiz-card li {
     background-color: var(--secondary-color);
     color: var(--secondary-text-color);
-    margin: 8px;
     width: 294px;
-    padding: 4px;
+    padding: 8px;
     border-radius: 4px;
+}
+
+.quiz-card-container {
+    display: flex;
+    gap: 16px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.quiz-card-container li {
+    flex-basis: 120px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.quiz-answer-button {
+    flex-basis: auto;
+    background: var(--secondary-color);
+    color: var(--secondary-text-color);
+    border: none;
+}
+
+.quiz-answer-selected-button {
+    color: var(--accent-color);
+    flex-basis: auto;
+    background: var(--secondary-color);
+    border: none;
+}
+
+@media (min-width: 576px) {
+  .quiz-card-question {
+      width: 500px;
+  }
 }

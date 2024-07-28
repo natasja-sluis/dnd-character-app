@@ -1,4 +1,4 @@
-button {
+.button {
     background: var(--accent-color);
     border: 1px solid var(--accent-color);
     border-radius: 4px;
@@ -7,7 +7,7 @@ button {
     margin: 8px;
 }
 
-button:hover {
+.button:hover {
     cursor: pointer;
     background: var(--secondary-color);
     color: var(--accent-color);

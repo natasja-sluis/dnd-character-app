@@ -1,12 +1,13 @@
 .navigation-container {
     display: flex;
     justify-content: center;
+    width: 100%;
     padding: 1.5rem;
     background-color: var(--secondary-color);
 }
 
 nav ul {
-    flex-basis: 100%;
+    flex-grow: 1;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;

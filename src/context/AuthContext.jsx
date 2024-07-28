@@ -31,7 +31,7 @@ function AuthContextProvider({children}) {
         const decoded = jwtDecode(token);
         void fetchUserData(decoded.sub, token);
 
-    }, [isAuthenticated.user]);
+    }, []);
 
     function login(JWT) {
         localStorage.setItem("token", JWT);
@@ -85,30 +85,32 @@ function AuthContextProvider({children}) {
         }
     }
 
-        async function setUserInfoFavourites(favourites) {
-            const token = localStorage.getItem("token");
-            const username = isAuthenticated.user && isAuthenticated.user.username;
+    async function setUserInfoFavourites(favourites) {
+        const token = localStorage.getItem("token");
+        const username = isAuthenticated.user && isAuthenticated.user.username;
 
-            if (!username) {
-                console.error('no username found');
-                return;
-            }
+        if (!username) {
+            console.error('no username found');
+            return;
+        }
 
-            try {
-                const payload = favourites.join(',');
-                await axios.put(`https://api.datavortex.nl/classesdndapp/users/${username}`, {
-                        "info": payload,
-                    }, {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            Authorization: `Bearer ${token}`,
-                            'X-Api-Key': 'classesdndapp:gojvJ2W0a5H9EWvzN8bl',
-                        },
-                    }
-                )
-            } catch (error) {
-                console.error(error);
-            }}
+        try {
+            const payload = favourites.join(',');
+            await axios.put(`https://api.datavortex.nl/classesdndapp/users/${username}`, {
+                    "info": payload,
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}`,
+                        'X-Api-Key': 'classesdndapp:gojvJ2W0a5H9EWvzN8bl',
+                    },
+                }
+            )
+            fetchUserData(username, token);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     const contextData = {
         ...isAuthenticated,
